@@ -1,2 +1,6 @@
 rootProject.name='20200522-AbulHashemJr-NYCSchools'
+
+include ':core'
 include ':app'
+
+rootProject.buildFileName = "build.gradle.kts"
