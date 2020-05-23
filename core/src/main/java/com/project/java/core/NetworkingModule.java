@@ -1,6 +1,7 @@
 package com.project.java.core;
 
 import com.facebook.stetho.BuildConfig;
+import com.project.java.remote.RemoteServiceModule;
 
 import java.net.CookieManager;
 import java.net.CookiePolicy;
@@ -17,7 +18,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import timber.log.Timber;
 
-@Module
+@Module(includes = {RemoteServiceModule.class})
 public abstract class NetworkingModule {
     private static final int READ_TIMEOUT = 10000;
     private static final int CONNECTION_TIMEOUT = 10000;
@@ -61,6 +62,6 @@ public abstract class NetworkingModule {
     @Provides
     @Named("base_url")
     static String provideBaseUrl() {
-        return ""; // TODO: Pass in API Base URL
+        return "https://data.cityofnewyork.us/";
     }
 }

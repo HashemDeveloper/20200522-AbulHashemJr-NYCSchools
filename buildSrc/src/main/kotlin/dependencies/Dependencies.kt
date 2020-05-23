@@ -59,4 +59,8 @@ object Dependencies {
         const val FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:${BuildDependenciesVersions.NAVIGATION_V}"
         const val UI_KTX = "androidx.navigation:navigation-ui-ktx:${BuildDependenciesVersions.NAVIGATION_V}"
     }
+    object PAGINATION {
+        const val RX_JAVA2 = "androidx.paging:paging-rxjava2:${BuildDependenciesVersions.PAGINATION}"
+        const val CORE = "androidx.paging:paging-runtime:${BuildDependenciesVersions.PAGINATION}"
+    }
 }
