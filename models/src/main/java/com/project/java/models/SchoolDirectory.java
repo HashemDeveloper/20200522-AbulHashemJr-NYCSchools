@@ -1,10 +1,15 @@
 package com.project.java.models;
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.RequiresApi;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 public class SchoolDirectory implements Parcelable {
     @SerializedName("dbn")
@@ -826,6 +831,22 @@ public class SchoolDirectory implements Parcelable {
 
     public void setEligibility1(String eligibility1) {
         this.eligibility1 = eligibility1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SchoolDirectory)) return false;
+        SchoolDirectory that = (SchoolDirectory) o;
+        return getDbn().equals(that.getDbn()) &&
+                getSchoolName().equals(that.getSchoolName()) &&
+                getBoro().equals(that.getBoro());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDbn(), getSchoolName(), getBoro());
     }
 
     public void writeToParcel(Parcel dest, int flags) {
