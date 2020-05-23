@@ -11,6 +11,10 @@ public class ViewStatusLiveData<T> extends MutableLiveData<ViewState<T>> {
         postValue(new ViewState<T>().onSuccess(data));
     }
 
+    public void onComplete() {
+        postValue(new ViewState<T>().onComplete());
+    }
+
     public void postError(String errorMessage) {
         postValue(new ViewState<T>().onError(errorMessage));
     }

@@ -13,10 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.project.java.core.viewmodel.ViewModelFactory;
-import com.project.java.models.SchoolDirectory;
 import com.project.java.schoollist.databinding.FragmentSchoolListPageBinding;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -47,9 +44,11 @@ public class SchoolListPage extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         this.schoolListPageViewModel = new ViewModelProvider(requireActivity(), new ViewModelFactory<SchoolListPageViewModel>(this.viewModelFactory, requireActivity(), savedInstanceState))
         .get(SchoolListPageViewModel.class);
-        this.schoolListPageViewModel.retrieveList();
-        this.schoolListPageViewModel.getSchoolList().observe(getViewLifecycleOwner(), schoolListObserver());
         super.onViewCreated(view, savedInstanceState);
+        this.schoolListPageViewModel.getSchoolListData().observe(getViewLifecycleOwner(), schoolDirectories -> {
+            Timber.e(schoolDirectories.toString());
+        });
+        this.schoolListPageViewModel.getStatusLiveData().observe(getViewLifecycleOwner(), schoolListObserver());
     }
 
     private Observer<Object> schoolListObserver() {
@@ -60,9 +59,8 @@ public class SchoolListPage extends Fragment {
                         Timber.e("Loading");
                         break;
                     }
-                    case SUCCESS: {
-                        List<SchoolDirectory> list = (List<SchoolDirectory>) ((ViewState) o).getData();
-                        Timber.e(list.get(0).getSchoolName());
+                    case COMPLETE: {
+                        Timber.e("Completed");
                         break;
                     }
                     case ERROR: {
@@ -76,6 +74,5 @@ public class SchoolListPage extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        this.schoolListPageViewModel.getSchoolList().removeObserver(this.schoolListObserver());
     }
 }
