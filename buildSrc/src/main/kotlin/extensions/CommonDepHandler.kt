@@ -22,6 +22,7 @@ fun DependencyHandler.commonFeaturesDependencies() {
     implementation(Dependencies.Dagger.ANDROID_SUPPORT)
     implementation(Dependencies.Retrofit.CORE)
     implementation(Dependencies.Retrofit.CONVERTER)
+
     kapt(dependencies.AnnotationProcessor.Dagger.COMPILER)
     kapt(dependencies.AnnotationProcessor.Dagger.ANDROID_PROCESSOR)
     kapt(dependencies.AnnotationProcessor.Dagger.INJECT_PROCESSOR)

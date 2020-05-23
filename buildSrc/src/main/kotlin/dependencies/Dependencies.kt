@@ -18,6 +18,7 @@ object Dependencies {
     object Retrofit {
         const val CORE = "com.squareup.retrofit2:retrofit:${BuildDependenciesVersions.RETROFIT}"
         const val CONVERTER = "com.squareup.retrofit2:converter-gson:${BuildDependenciesVersions.GSON_V}"
+        const val RX_JAVA2 = "com.squareup.retrofit2:adapter-rxjava2:${BuildDependenciesVersions.RETROFIT}"
     }
     object Dagger {
         const val ANDROID = "com.google.dagger:dagger-android:${BuildDependenciesVersions.DAGGER}"
@@ -30,6 +31,10 @@ object Dependencies {
     object Coroutine {
         const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${BuildDependenciesVersions.KOTLIN_COROUTINES_V}"
         const val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${BuildDependenciesVersions.KOTLIN_COROUTINES_V}"
+    }
+    object RxJava2 {
+        const val ANDROID_VERSION = "io.reactivex.rxjava2:rxandroid:${BuildDependenciesVersions.RX_ANDROID_V}"
+        const val JAVA_VERSION = "io.reactivex.rxjava2:rxjava:${BuildDependenciesVersions.RX_JAVA_V}"
     }
     object ViewModel {
         const val VIEW_MODEL_LIFECYCLE_EXT = "androidx.lifecycle:lifecycle-extensions:${BuildDependenciesVersions.LIFECYCLE_VIEWMODEL_KTX_V}"

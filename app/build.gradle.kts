@@ -77,8 +77,8 @@ android {
 }
 
 dependencies {
+    implementation(project(BuildModules.CORE))
     implementation(Dependencies.KOTLIN)
-
     implementation(Dependencies.AndroidX.APP_COMPAT)
     implementation(Dependencies.AndroidX.Core_KTX)
     implementation(Dependencies.AndroidX.CONSTRAINT_LAYOUT)
