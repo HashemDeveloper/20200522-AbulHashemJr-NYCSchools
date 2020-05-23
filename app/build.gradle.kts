@@ -78,6 +78,8 @@ android {
 
 dependencies {
     implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.SCHOOL_LIST_PAGE))
+    
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.AndroidX.APP_COMPAT)
     implementation(Dependencies.AndroidX.Core_KTX)
