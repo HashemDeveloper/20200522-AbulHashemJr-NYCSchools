@@ -78,6 +78,7 @@ android {
 
 dependencies {
     implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.REMOTE_DATA))
     implementation(project(BuildModules.SCHOOL_LIST_PAGE))
     
     implementation(Dependencies.KOTLIN)

@@ -62,6 +62,8 @@ android {
 
 dependencies {
     implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.REMOTE_DATA))
+    implementation(project(BuildModules.MODELS))
     implementation(Dependencies.KOTLIN)
     addTestDependencies()
     commonFeaturesDependencies()

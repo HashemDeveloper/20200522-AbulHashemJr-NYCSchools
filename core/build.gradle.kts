@@ -58,6 +58,8 @@ android {
 }
 
 dependencies {
+    implementation(project(BuildModules.REMOTE_DATA))
+
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.AndroidX.Core_KTX)
 

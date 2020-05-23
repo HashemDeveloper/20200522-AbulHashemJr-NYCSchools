@@ -40,10 +40,11 @@ object BuildDependenciesVersions {
     const val TIMBER_V = "4.7.1"
     const val LOTTIE_V = "3.3.1"
     const val FLOATING_SEARCH_V = "2.1.1"
-    const val RX_JAVA_V = "2.1.4"
+    const val RX_JAVA_V = "2.2.6"
     const val RX_ANDROID_V = "2.1.1"
     const val FLOWABLE_TEXTVIEW_V = "2.0.5"
     const val THREE_TEN_APP_V = "1.0.5"
+    const val PAGINATION = "2.1.2"
 
     object Test {
         const val JUNIT = "4.13"
