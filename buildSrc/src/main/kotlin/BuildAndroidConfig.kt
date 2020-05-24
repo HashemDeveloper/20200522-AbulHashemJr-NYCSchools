@@ -1,6 +1,6 @@
 
 object BuildAndroidConfig {
-    const val APPLICATION_ID = "com.project.webuygoods"
+    const val APPLICATION_ID = "com.project.java.a20200522_abulhashemjr_nycschools"
 
     const val BUILD_TOOLS_VERSION = "29.0.3"
     const val COMPILE_SDK_VERSION = 29

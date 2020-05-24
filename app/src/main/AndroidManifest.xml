@@ -22,6 +22,10 @@
             </intent-filter>
             <nav-graph android:value="@navigation/nyc_school_navigation_layout"/>
         </activity>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_key"
+            />
     </application>
 
 </manifest>

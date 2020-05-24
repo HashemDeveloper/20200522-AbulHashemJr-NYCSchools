@@ -26,7 +26,7 @@ import timber.log.Timber;
 import utils.ViewState;
 
 public class SchoolDetailsPage extends Fragment {
-    private FragmentSchoolDetailsLayoutBinding binding;
+    public FragmentSchoolDetailsLayoutBinding binding;
     @Inject
     public SchoolDetailPageViewModel.Factory viewModelFactory;
     private NavController navController;

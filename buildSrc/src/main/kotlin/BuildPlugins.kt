@@ -10,4 +10,6 @@ object BuildPlugins {
     const val KOTLIN_ALLOPEN = "kotlin-allopen"
 
     const val NAVIGATION_SAFE_ARGS = "androidx.navigation.safeargs.kotlin"
+
+    const val GOOGLE_SERVICE = "com.google.gms.google-services"
 }

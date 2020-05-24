@@ -10,6 +10,7 @@ plugins {
     id(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
     id(BuildPlugins.KOTLIN_KAPT)
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
+    id(BuildPlugins.GOOGLE_SERVICE)
 }
 
 android {

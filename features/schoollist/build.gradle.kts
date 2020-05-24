@@ -17,6 +17,7 @@ android {
     defaultConfig {
         minSdkVersion(BuildAndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(BuildAndroidConfig.TARGET_SDK_VERSION)
+        resValue("string", "google_map_key", (project.findProperty("GOOGLE_MAP_KEY")?.toString() ?: ""))
     }
     sourceSets {
         getByName("main") {
