@@ -132,7 +132,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/test_takers"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textColor="@color/blue_gray500"

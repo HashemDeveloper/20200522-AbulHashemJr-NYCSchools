@@ -44,16 +44,25 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         schoolListViewHolder.getCardView().setOnClickListener(onClick -> {
             SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
             String id = schoolDirectory.getDbn();
-            this.listener.onItemClicked(ItemClickType.NAVIGATE, id);
+            String schoolName = schoolDirectory.getSchoolName();
+            String[] dataArray = new String[2];
+            dataArray[0] = id;
+            dataArray[1] = schoolName;
+            this.listener.onItemClicked(ItemClickType.NAVIGATE, dataArray);
         });
         schoolListViewHolder.getWebsiteBt().setOnClickListener(view1 -> {
             SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
             this.listener.onItemClicked(ItemClickType.WEBSITE, schoolDirectory.getWebsite() != null ? schoolDirectory.getWebsite() : "");
         });
-        schoolListViewHolder.getDirectionBt().setOnClickListener(view2 -> {
+        schoolListViewHolder.getSatScoreBt().setOnClickListener(view2 -> {
             SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
-            String destination = schoolDirectory.getLatitude() + "," + schoolDirectory.getLongitude();
-            this.listener.onItemClicked(ItemClickType.DIRECTION, destination);
+//            String destination = schoolDirectory.getLatitude() + "," + schoolDirectory.getLongitude();
+            String id = schoolDirectory.getDbn();
+            String schoolName = schoolDirectory.getSchoolName();
+            String[] dataArray = new String[2];
+            dataArray[0] = id;
+            dataArray[1] = schoolName;
+            this.listener.onItemClicked(ItemClickType.SAT_SCORE, dataArray);
         });
         return schoolListViewHolder;
     }
@@ -89,7 +98,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         private MaterialTextView titleView;
         private FlowTextView overviewTextView;
         private MaterialButton websiteBt;
-        private MaterialButton directionBt;
+        private MaterialButton satScoreBt;
         private AppCompatImageView addressSnapShotView;
 
         SchoolListViewHolder(@NonNull View itemView, Context context, int zoomSize, String imageSize, String mapApiKey) {
@@ -99,7 +108,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
             this.titleView = itemView.findViewById(R.id.fragment_school_list_school_title_id);
             this.overviewTextView = itemView.findViewById(R.id.fragment_school_list_overview_text_view_id);
             this.websiteBt = itemView.findViewById(R.id.fragment_school_list_website_bt_id);
-            this.directionBt = itemView.findViewById(R.id.fragment_school_list_direction_bt_id);
+            this.satScoreBt = itemView.findViewById(R.id.fragment_school_list_sat_score_bt_id);
             this.addressSnapShotView = itemView.findViewById(R.id.fragment_school_list_map_view_id);
             this.zoomSize = zoomSize;
             this.imageSize = imageSize;
@@ -131,8 +140,8 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         MaterialButton getWebsiteBt() {
             return this.websiteBt;
         }
-        MaterialButton getDirectionBt() {
-            return this.directionBt;
+        MaterialButton getSatScoreBt() {
+            return this.satScoreBt;
         }
         MaterialCardView getCardView() {
             return this.cardView;
@@ -144,7 +153,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
 
     public enum ItemClickType {
         WEBSITE,
-        DIRECTION,
+        SAT_SCORE,
         NAVIGATE
     }
 }
