@@ -55,7 +55,8 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
         super.onViewCreated(view, savedInstanceState);
         this.navController = Navigation.findNavController(this.binding.getRoot());
         this.binding.fragmentSchoolListRecyclerViewId.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        this.schoolListAdapter = new SchoolListAdapter(14, "200x200", "", this);
+        String mapKey = getResources().getString(R.string.google_map_key);
+        this.schoolListAdapter = new SchoolListAdapter(14, "600x600", mapKey, this);
         this.binding.fragmentSchoolListRecyclerViewId.setAdapter(this.schoolListAdapter);
         this.schoolListPageViewModel.getSchoolListData().observe(getViewLifecycleOwner(), schoolDirectories -> {
             this.schoolListAdapter.submitList(schoolDirectories);

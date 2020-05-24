@@ -9,6 +9,7 @@ object PluginVersions {
     const val GRADLE_VERSION = "0.28.0"
     const val KOTLIN_VERSION = "1.3.72"
     const val NAVIGATION = "2.2.1"
+    const val GOOGLE_PLAY_SERVICE_V = "4.3.3"
 }
 
 repositories {
@@ -26,4 +27,5 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${PluginVersions.KOTLIN_VERSION}")
     implementation("org.jetbrains.kotlin:kotlin-allopen:${PluginVersions.KOTLIN_VERSION}")
     implementation("androidx.navigation:navigation-safe-args-gradle-plugin:${PluginVersions.NAVIGATION}")
+    implementation("com.google.gms:google-services:${PluginVersions.GOOGLE_PLAY_SERVICE_V}")
 }

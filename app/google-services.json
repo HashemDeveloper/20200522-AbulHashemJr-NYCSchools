@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "339158755869",
+    "firebase_url": "https://nycschools.firebaseio.com",
+    "project_id": "nycschools",
+    "storage_bucket": "nycschools.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339158755869:android:b158eb5c7b8f4fbc95f4f4",
+        "android_client_info": {
+          "package_name": "com.project.java.a20200522_abulhashemjr_nycschools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339158755869-5htel2ftr6asgs8mj4tpo23u98eqhrdp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.java.a20200522_abulhashemjr_nycschools",
+            "certificate_hash": "094a6b158fc1797717d10319a2395ad87bf7e10c"
+          }
+        },
+        {
+          "client_id": "339158755869-skvnd6p78b1qekgl7m12914r3cqushh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsGdSiNuiOXXmNPLLPof_qgKRuZSNrFio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339158755869-skvnd6p78b1qekgl7m12914r3cqushh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
