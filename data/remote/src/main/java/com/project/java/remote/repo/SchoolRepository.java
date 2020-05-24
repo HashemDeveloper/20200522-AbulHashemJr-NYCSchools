@@ -2,11 +2,9 @@ package com.project.java.remote.repo;
 
 import androidx.lifecycle.LiveData;
 
-import com.project.java.models.SchoolDirectory;
+import com.project.java.models.SATScores;
 import com.project.java.remote.BuildConfig;
 import com.project.java.remote.ISchoolApi;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -29,33 +27,33 @@ public class SchoolRepository implements ISchoolRepository {
 
     }
 
-
     @Override
-    public void retrieveSchoolList() {
+    public void fetchSATScore(String id) {
         this.viewStatusLiveData.postLoading();
-        // passing empty string Because pagination for this API server currently not working
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(30)
+        this.compositeDisposable.add(this.iSchoolApi.getSATScores(id)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {
             if (result != null && result.isSuccessful()) {
-                List<SchoolDirectory> schoolDirectoryList = result.body();
-                this.viewStatusLiveData.postSuccess(schoolDirectoryList);
+                SATScores satScores = result.body();
+                this.viewStatusLiveData.postSuccess(satScores);
             }
-        }, onError -> {
-            String errorMessage = "";
-            if (onError != null && onError.getLocalizedMessage() != null) {
-                errorMessage = onError.getLocalizedMessage();
-            }
-            this.viewStatusLiveData.postError(errorMessage);
-            if (BuildConfig.DEBUG) {
-                Timber.e("%sError in fetching school list: %s", TAG, errorMessage);
-            }
-        }));
+        }, this::displayError));
+    }
+
+    private void displayError(Throwable onError) {
+        String errorMessage = "";
+        if (onError != null && onError.getLocalizedMessage() != null) {
+            errorMessage = onError.getLocalizedMessage();
+        }
+        this.viewStatusLiveData.postError(errorMessage);
+        if (BuildConfig.DEBUG) {
+            Timber.e("%sError in fetching school list: %s", TAG, errorMessage);
+        }
     }
 
     @Override
-    public LiveData getViewStatusLiveData() {
+    public LiveData getLiveData() {
         return this.viewStatusLiveData;
     }
 }
