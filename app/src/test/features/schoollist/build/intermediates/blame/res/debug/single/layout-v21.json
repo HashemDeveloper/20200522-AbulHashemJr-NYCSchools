@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/15aac6b95995251b4dd5a2bda10eeb2c/core-1.2.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/15aac6b95995251b4dd5a2bda10eeb2c/core-1.2.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/15aac6b95995251b4dd5a2bda10eeb2c/core-1.2.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/15aac6b95995251b4dd5a2bda10eeb2c/core-1.2.0/res/layout-v21/notification_action.xml"
+    }
+]

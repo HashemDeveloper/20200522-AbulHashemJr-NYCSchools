@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/anim-v21/fragment_fast_out_extra_slow_in.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/0cbcc60e1aea4bd828117d494dff9c8f/fragment-1.2.4/res/anim-v21/fragment_fast_out_extra_slow_in.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/anim-v21/mtrl_bottom_sheet_slide_in.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/anim-v21/mtrl_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/anim-v21/mtrl_bottom_sheet_slide_out.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/anim-v21/mtrl_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    }
+]

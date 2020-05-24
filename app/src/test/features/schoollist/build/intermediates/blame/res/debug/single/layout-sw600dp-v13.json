@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-sw600dp-v13/mtrl_layout_snackbar.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/layout-sw600dp-v13/mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    }
+]

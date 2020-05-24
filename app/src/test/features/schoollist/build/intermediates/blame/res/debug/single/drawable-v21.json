@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/15aac6b95995251b4dd5a2bda10eeb2c/core-1.2.0/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/abc_dialog_material_background.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/f1b0b4e0a0e944add68654f8002b901b/appcompat-1.1.0/res/drawable-v21/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/f1b0b4e0a0e944add68654f8002b901b/appcompat-1.1.0/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/abc_list_divider_material.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/f1b0b4e0a0e944add68654f8002b901b/appcompat-1.1.0/res/drawable-v21/abc_list_divider_material.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/f1b0b4e0a0e944add68654f8002b901b/appcompat-1.1.0/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/f1b0b4e0a0e944add68654f8002b901b/appcompat-1.1.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]

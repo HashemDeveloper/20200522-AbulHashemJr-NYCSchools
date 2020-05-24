@@ -1,0 +1,23 @@
+R_DEF: Internal format may change without notice
+local
+id bottomGuideLine
+id centerGuideLine
+id fragment_school_list_container_id
+id fragment_school_list_content_container_id
+id fragment_school_list_direction_bt_id
+id fragment_school_list_item_card_view_id
+id fragment_school_list_map_view_id
+id fragment_school_list_overview_text_view_id
+id fragment_school_list_page_progress_bar_id
+id fragment_school_list_recycler_view_id
+id fragment_school_list_school_title_id
+id fragment_school_list_website_bt_id
+id leftGuideLiine
+id overViewBarrier
+id overviewGuideLine
+id rightGuideLine
+id titleGuideLine
+id topGuideLine
+layout fragment_school_list_page
+layout fragment_school_list_recycler_item_layout
+style AppTheme
