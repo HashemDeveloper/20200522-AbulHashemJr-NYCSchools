@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.project.java.schooldetails.databinding.FragmentSchoolDetailsLayoutBinding
 import dagger.android.support.AndroidSupportInjection
+import timber.log.Timber
 
 class SchoolDetailsPage: Fragment() {
     private var binding: FragmentSchoolDetailsLayoutBinding?= null
@@ -27,6 +28,8 @@ class SchoolDetailsPage: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val id: String? = arguments?.getString("school_id")
+        Timber.e(id)
         super.onViewCreated(view, savedInstanceState)
     }
 }
