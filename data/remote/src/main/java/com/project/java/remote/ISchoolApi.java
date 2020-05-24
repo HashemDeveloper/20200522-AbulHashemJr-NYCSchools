@@ -17,5 +17,5 @@ public interface ISchoolApi {
     Observable<Response<List<SchoolDirectory>>> getListOfSchools(@Query("$limit") int limit);
     @Headers({"Content-Type: application/json"})
     @GET("resource/f9bf-2cp4.json")
-    Observable<Response<SATScores>> getSATScores(@Query("$q") String id);
+    Observable<Response<List<SATScores>>> getSATScores(@Query("$q") String id);
 }

@@ -6,6 +6,8 @@ import com.project.java.models.SATScores;
 import com.project.java.remote.BuildConfig;
 import com.project.java.remote.ISchoolApi;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -35,7 +37,7 @@ public class SchoolRepository implements ISchoolRepository {
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {
             if (result != null && result.isSuccessful()) {
-                SATScores satScores = result.body();
+                List<SATScores> satScores = result.body();
                 this.viewStatusLiveData.postSuccess(satScores);
             }
         }, this::displayError));
