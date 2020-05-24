@@ -8,4 +8,4 @@ include ':models'
 include ':assets'
 
 rootProject.buildFileName = "build.gradle.kts"
-
+include ':features:schooldetails'
