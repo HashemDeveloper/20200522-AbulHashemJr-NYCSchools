@@ -23,6 +23,7 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
     public static final String PAGE_LIST_STATE = "PageListState";
     private SavedStateHandle savedStateHandle;
     private static final int PAGE_SIZE = 30;
+    private int initialOffSet = 0;
     private ISchoolApi iSchoolApi;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private ViewStatusLiveData viewStatusLiveData = new ViewStatusLiveData();
@@ -34,7 +35,7 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
      @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, SchoolDirectory> callback) {
         this.viewStatusLiveData.postLoading();
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(PAGE_SIZE)
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(PAGE_SIZE, initialOffSet)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {
@@ -43,16 +44,36 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
                 if (schoolDirectoryList != null && !schoolDirectoryList.isEmpty()) {
                     this.savedStateHandle.set(PAGE_LIST_STATE, schoolDirectoryList);
                     this.viewStatusLiveData.onComplete();
-                    callback.onResult(schoolDirectoryList, null, 2);
+                    callback.onResult(schoolDirectoryList, null, 1);
                 }
             }
         }, this::displayError));
     }
 
     @Override
+    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, SchoolDirectory> callback) {
+        this.savedStateHandle.remove(PAGE_LIST_STATE);
+        this.initialOffSet++;
+        int count = this.initialOffSet;
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key, count)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(result -> {
+                    if (result != null && result.isSuccessful()) {
+                        List<SchoolDirectory> schoolDirectoryList = result.body();
+                        if (schoolDirectoryList != null && !schoolDirectoryList.isEmpty()) {
+                            this.viewStatusLiveData.onComplete();
+                            this.savedStateHandle.set(PAGE_LIST_STATE, schoolDirectoryList);
+                            callback.onResult(schoolDirectoryList, params.key+1);
+                        }
+                    }
+                }, this::displayError));
+    }
+
+    @Override
     public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, SchoolDirectory> callback) {
         this.savedStateHandle.remove(PAGE_LIST_STATE);
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key)
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key, this.initialOffSet++)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {
@@ -67,23 +88,6 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
         }, this::displayError));
     }
 
-    @Override
-    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, SchoolDirectory> callback) {
-        this.savedStateHandle.remove(PAGE_LIST_STATE);
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(result -> {
-                    if (result != null && result.isSuccessful()) {
-                        List<SchoolDirectory> schoolDirectoryList = result.body();
-                        if (schoolDirectoryList != null && !schoolDirectoryList.isEmpty()) {
-                            this.viewStatusLiveData.onComplete();
-                            this.savedStateHandle.set(PAGE_LIST_STATE, schoolDirectoryList);
-                            callback.onResult(schoolDirectoryList, params.key+1);
-                        }
-                    }
-                }, this::displayError));
-    }
     public LiveData getStatusLiveData() {
         return this.viewStatusLiveData;
     }

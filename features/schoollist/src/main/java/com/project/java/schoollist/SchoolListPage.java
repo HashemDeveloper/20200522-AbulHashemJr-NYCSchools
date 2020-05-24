@@ -39,6 +39,8 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
     public void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidSupportInjection.inject(this);
         super.onCreate(savedInstanceState);
+        this.schoolListPageViewModel = new ViewModelProvider(requireActivity(), new ViewModelFactory<SchoolListPageViewModel>(this.viewModelFactory, requireActivity(), savedInstanceState))
+                .get(SchoolListPageViewModel.class);
     }
 
     @Nullable
@@ -50,8 +52,6 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        this.schoolListPageViewModel = new ViewModelProvider(requireActivity(), new ViewModelFactory<SchoolListPageViewModel>(this.viewModelFactory, requireActivity(), savedInstanceState))
-        .get(SchoolListPageViewModel.class);
         super.onViewCreated(view, savedInstanceState);
         this.navController = Navigation.findNavController(this.binding.getRoot());
         this.binding.fragmentSchoolListRecyclerViewId.setLayoutManager(new LinearLayoutManager(this.getContext()));

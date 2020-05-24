@@ -8,7 +8,9 @@ import com.project.java.models.SchoolDirectory;
 public class DiffUtils extends DiffUtil.ItemCallback<SchoolDirectory> {
     @Override
     public boolean areItemsTheSame(@NonNull SchoolDirectory oldItem, @NonNull SchoolDirectory newItem) {
-        return oldItem.getDbn().equals(newItem.getDbn());
+        int oldId = Integer.parseInt(oldItem.getDbn());
+        int newId = Integer.parseInt(newItem.getDbn());
+        return oldId == newId;
     }
 
     @Override

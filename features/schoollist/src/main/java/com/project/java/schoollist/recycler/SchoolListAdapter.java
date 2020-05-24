@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.google.android.material.button.MaterialButton;
@@ -28,7 +29,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
     private SchoolListItemClickListener listener;
 
     public SchoolListAdapter(int zoomSize, String imageSize, String mapApiKey, SchoolListItemClickListener listener) {
-        super(new DiffUtils());
+        super(DIFF_CALLBACK);
         this.imageSize = imageSize;
         this.zoomSize = zoomSize;
         this.mapApiKey = mapApiKey;
@@ -62,6 +63,22 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         SchoolDirectory schoolDirectory = getItem(position);
         ((SchoolListViewHolder) holder).bindView(schoolDirectory);
     }
+
+    private static final DiffUtil.ItemCallback<SchoolDirectory> DIFF_CALLBACK =
+            new DiffUtil.ItemCallback<SchoolDirectory>() {
+                @Override
+                public boolean areItemsTheSame(
+                        @NonNull SchoolDirectory oldDr, @NonNull SchoolDirectory newDr) {
+                    int oldId = Integer.parseInt(oldDr.getDbn());
+                    int newId = Integer.parseInt(newDr.getDbn());
+                    return oldId == newId && oldDr.getSchoolName().equals(newDr.getSchoolName()) && oldDr.getSchoolEmail().equals(newDr.getSchoolEmail());
+                }
+                @Override
+                public boolean areContentsTheSame(
+                        @NonNull SchoolDirectory oldDr, @NonNull SchoolDirectory newDr) {
+                    return oldDr.equals(newDr);
+                }
+            };
 
     static class SchoolListViewHolder extends BaseViewHolder<SchoolDirectory> {
         private String mapApiKey;

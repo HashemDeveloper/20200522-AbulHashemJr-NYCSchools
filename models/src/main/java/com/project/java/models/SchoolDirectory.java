@@ -1,15 +1,10 @@
 package com.project.java.models;
 
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.RequiresApi;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Objects;
 
 public class SchoolDirectory implements Parcelable {
     @SerializedName("dbn")
@@ -837,16 +832,214 @@ public class SchoolDirectory implements Parcelable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof SchoolDirectory)) return false;
+
         SchoolDirectory that = (SchoolDirectory) o;
-        return getDbn().equals(that.getDbn()) &&
-                getSchoolName().equals(that.getSchoolName()) &&
-                getBoro().equals(that.getBoro());
+
+        if (getDbn() != null ? !getDbn().equals(that.getDbn()) : that.getDbn() != null)
+            return false;
+        if (getSchoolName() != null ? !getSchoolName().equals(that.getSchoolName()) : that.getSchoolName() != null)
+            return false;
+        if (getBoro() != null ? !getBoro().equals(that.getBoro()) : that.getBoro() != null)
+            return false;
+        if (getOverviewParagraph() != null ? !getOverviewParagraph().equals(that.getOverviewParagraph()) : that.getOverviewParagraph() != null)
+            return false;
+        if (getSchool10thSeats() != null ? !getSchool10thSeats().equals(that.getSchool10thSeats()) : that.getSchool10thSeats() != null)
+            return false;
+        if (getAcademicopportunities1() != null ? !getAcademicopportunities1().equals(that.getAcademicopportunities1()) : that.getAcademicopportunities1() != null)
+            return false;
+        if (getAcademicopportunities2() != null ? !getAcademicopportunities2().equals(that.getAcademicopportunities2()) : that.getAcademicopportunities2() != null)
+            return false;
+        if (getEllPrograms() != null ? !getEllPrograms().equals(that.getEllPrograms()) : that.getEllPrograms() != null)
+            return false;
+        if (getNeighborhood() != null ? !getNeighborhood().equals(that.getNeighborhood()) : that.getNeighborhood() != null)
+            return false;
+        if (getBuildingCode() != null ? !getBuildingCode().equals(that.getBuildingCode()) : that.getBuildingCode() != null)
+            return false;
+        if (getLocation() != null ? !getLocation().equals(that.getLocation()) : that.getLocation() != null)
+            return false;
+        if (getPhoneNumber() != null ? !getPhoneNumber().equals(that.getPhoneNumber()) : that.getPhoneNumber() != null)
+            return false;
+        if (getFaxNumber() != null ? !getFaxNumber().equals(that.getFaxNumber()) : that.getFaxNumber() != null)
+            return false;
+        if (getSchoolEmail() != null ? !getSchoolEmail().equals(that.getSchoolEmail()) : that.getSchoolEmail() != null)
+            return false;
+        if (getWebsite() != null ? !getWebsite().equals(that.getWebsite()) : that.getWebsite() != null)
+            return false;
+        if (getSubway() != null ? !getSubway().equals(that.getSubway()) : that.getSubway() != null)
+            return false;
+        if (getBus() != null ? !getBus().equals(that.getBus()) : that.getBus() != null)
+            return false;
+        if (getGrades2018() != null ? !getGrades2018().equals(that.getGrades2018()) : that.getGrades2018() != null)
+            return false;
+        if (getFinalgrades() != null ? !getFinalgrades().equals(that.getFinalgrades()) : that.getFinalgrades() != null)
+            return false;
+        if (getTotalStudents() != null ? !getTotalStudents().equals(that.getTotalStudents()) : that.getTotalStudents() != null)
+            return false;
+        if (getExtracurricularActivities() != null ? !getExtracurricularActivities().equals(that.getExtracurricularActivities()) : that.getExtracurricularActivities() != null)
+            return false;
+        if (getSchoolSports() != null ? !getSchoolSports().equals(that.getSchoolSports()) : that.getSchoolSports() != null)
+            return false;
+        if (getAttendanceRate() != null ? !getAttendanceRate().equals(that.getAttendanceRate()) : that.getAttendanceRate() != null)
+            return false;
+        if (getPctStuEnoughVariety() != null ? !getPctStuEnoughVariety().equals(that.getPctStuEnoughVariety()) : that.getPctStuEnoughVariety() != null)
+            return false;
+        if (getPctStuSafe() != null ? !getPctStuSafe().equals(that.getPctStuSafe()) : that.getPctStuSafe() != null)
+            return false;
+        if (getSchoolAccessibilityDescription() != null ? !getSchoolAccessibilityDescription().equals(that.getSchoolAccessibilityDescription()) : that.getSchoolAccessibilityDescription() != null)
+            return false;
+        if (getDirections1() != null ? !getDirections1().equals(that.getDirections1()) : that.getDirections1() != null)
+            return false;
+        if (getRequirement11() != null ? !getRequirement11().equals(that.getRequirement11()) : that.getRequirement11() != null)
+            return false;
+        if (getRequirement21() != null ? !getRequirement21().equals(that.getRequirement21()) : that.getRequirement21() != null)
+            return false;
+        if (getRequirement31() != null ? !getRequirement31().equals(that.getRequirement31()) : that.getRequirement31() != null)
+            return false;
+        if (getRequirement41() != null ? !getRequirement41().equals(that.getRequirement41()) : that.getRequirement41() != null)
+            return false;
+        if (getRequirement51() != null ? !getRequirement51().equals(that.getRequirement51()) : that.getRequirement51() != null)
+            return false;
+        if (getOfferRate1() != null ? !getOfferRate1().equals(that.getOfferRate1()) : that.getOfferRate1() != null)
+            return false;
+        if (getProgram1() != null ? !getProgram1().equals(that.getProgram1()) : that.getProgram1() != null)
+            return false;
+        if (getCode1() != null ? !getCode1().equals(that.getCode1()) : that.getCode1() != null)
+            return false;
+        if (getInterest1() != null ? !getInterest1().equals(that.getInterest1()) : that.getInterest1() != null)
+            return false;
+        if (getMethod1() != null ? !getMethod1().equals(that.getMethod1()) : that.getMethod1() != null)
+            return false;
+        if (getSeats9ge1() != null ? !getSeats9ge1().equals(that.getSeats9ge1()) : that.getSeats9ge1() != null)
+            return false;
+        if (getGrade9gefilledflag1() != null ? !getGrade9gefilledflag1().equals(that.getGrade9gefilledflag1()) : that.getGrade9gefilledflag1() != null)
+            return false;
+        if (getGrade9geapplicants1() != null ? !getGrade9geapplicants1().equals(that.getGrade9geapplicants1()) : that.getGrade9geapplicants1() != null)
+            return false;
+        if (getSeats9swd1() != null ? !getSeats9swd1().equals(that.getSeats9swd1()) : that.getSeats9swd1() != null)
+            return false;
+        if (getGrade9swdfilledflag1() != null ? !getGrade9swdfilledflag1().equals(that.getGrade9swdfilledflag1()) : that.getGrade9swdfilledflag1() != null)
+            return false;
+        if (getGrade9swdapplicants1() != null ? !getGrade9swdapplicants1().equals(that.getGrade9swdapplicants1()) : that.getGrade9swdapplicants1() != null)
+            return false;
+        if (getSeats101() != null ? !getSeats101().equals(that.getSeats101()) : that.getSeats101() != null)
+            return false;
+        if (getAdmissionspriority11() != null ? !getAdmissionspriority11().equals(that.getAdmissionspriority11()) : that.getAdmissionspriority11() != null)
+            return false;
+        if (getAdmissionspriority21() != null ? !getAdmissionspriority21().equals(that.getAdmissionspriority21()) : that.getAdmissionspriority21() != null)
+            return false;
+        if (getAdmissionspriority31() != null ? !getAdmissionspriority31().equals(that.getAdmissionspriority31()) : that.getAdmissionspriority31() != null)
+            return false;
+        if (getGrade9geapplicantsperseat1() != null ? !getGrade9geapplicantsperseat1().equals(that.getGrade9geapplicantsperseat1()) : that.getGrade9geapplicantsperseat1() != null)
+            return false;
+        if (getGrade9swdapplicantsperseat1() != null ? !getGrade9swdapplicantsperseat1().equals(that.getGrade9swdapplicantsperseat1()) : that.getGrade9swdapplicantsperseat1() != null)
+            return false;
+        if (getPrimaryAddressLine1() != null ? !getPrimaryAddressLine1().equals(that.getPrimaryAddressLine1()) : that.getPrimaryAddressLine1() != null)
+            return false;
+        if (getCity() != null ? !getCity().equals(that.getCity()) : that.getCity() != null)
+            return false;
+        if (getZip() != null ? !getZip().equals(that.getZip()) : that.getZip() != null)
+            return false;
+        if (getStateCode() != null ? !getStateCode().equals(that.getStateCode()) : that.getStateCode() != null)
+            return false;
+        if (getLatitude() != null ? !getLatitude().equals(that.getLatitude()) : that.getLatitude() != null)
+            return false;
+        if (getLongitude() != null ? !getLongitude().equals(that.getLongitude()) : that.getLongitude() != null)
+            return false;
+        if (getCommunityBoard() != null ? !getCommunityBoard().equals(that.getCommunityBoard()) : that.getCommunityBoard() != null)
+            return false;
+        if (getCouncilDistrict() != null ? !getCouncilDistrict().equals(that.getCouncilDistrict()) : that.getCouncilDistrict() != null)
+            return false;
+        if (getCensusTract() != null ? !getCensusTract().equals(that.getCensusTract()) : that.getCensusTract() != null)
+            return false;
+        if (getBin() != null ? !getBin().equals(that.getBin()) : that.getBin() != null)
+            return false;
+        if (getBbl() != null ? !getBbl().equals(that.getBbl()) : that.getBbl() != null)
+            return false;
+        if (getNta() != null ? !getNta().equals(that.getNta()) : that.getNta() != null)
+            return false;
+        if (getBorough() != null ? !getBorough().equals(that.getBorough()) : that.getBorough() != null)
+            return false;
+        if (getAcademicopportunities3() != null ? !getAcademicopportunities3().equals(that.getAcademicopportunities3()) : that.getAcademicopportunities3() != null)
+            return false;
+        if (getLanguageClasses() != null ? !getLanguageClasses().equals(that.getLanguageClasses()) : that.getLanguageClasses() != null)
+            return false;
+        if (getAddtlInfo1() != null ? !getAddtlInfo1().equals(that.getAddtlInfo1()) : that.getAddtlInfo1() != null)
+            return false;
+        if (getTransfer() != null ? !getTransfer().equals(that.getTransfer()) : that.getTransfer() != null)
+            return false;
+        return getEligibility1() != null ? getEligibility1().equals(that.getEligibility1()) : that.getEligibility1() == null;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public int hashCode() {
-        return Objects.hash(getDbn(), getSchoolName(), getBoro());
+        int result = getDbn() != null ? getDbn().hashCode() : 0;
+        result = 31 * result + (getSchoolName() != null ? getSchoolName().hashCode() : 0);
+        result = 31 * result + (getBoro() != null ? getBoro().hashCode() : 0);
+        result = 31 * result + (getOverviewParagraph() != null ? getOverviewParagraph().hashCode() : 0);
+        result = 31 * result + (getSchool10thSeats() != null ? getSchool10thSeats().hashCode() : 0);
+        result = 31 * result + (getAcademicopportunities1() != null ? getAcademicopportunities1().hashCode() : 0);
+        result = 31 * result + (getAcademicopportunities2() != null ? getAcademicopportunities2().hashCode() : 0);
+        result = 31 * result + (getEllPrograms() != null ? getEllPrograms().hashCode() : 0);
+        result = 31 * result + (getNeighborhood() != null ? getNeighborhood().hashCode() : 0);
+        result = 31 * result + (getBuildingCode() != null ? getBuildingCode().hashCode() : 0);
+        result = 31 * result + (getLocation() != null ? getLocation().hashCode() : 0);
+        result = 31 * result + (getPhoneNumber() != null ? getPhoneNumber().hashCode() : 0);
+        result = 31 * result + (getFaxNumber() != null ? getFaxNumber().hashCode() : 0);
+        result = 31 * result + (getSchoolEmail() != null ? getSchoolEmail().hashCode() : 0);
+        result = 31 * result + (getWebsite() != null ? getWebsite().hashCode() : 0);
+        result = 31 * result + (getSubway() != null ? getSubway().hashCode() : 0);
+        result = 31 * result + (getBus() != null ? getBus().hashCode() : 0);
+        result = 31 * result + (getGrades2018() != null ? getGrades2018().hashCode() : 0);
+        result = 31 * result + (getFinalgrades() != null ? getFinalgrades().hashCode() : 0);
+        result = 31 * result + (getTotalStudents() != null ? getTotalStudents().hashCode() : 0);
+        result = 31 * result + (getExtracurricularActivities() != null ? getExtracurricularActivities().hashCode() : 0);
+        result = 31 * result + (getSchoolSports() != null ? getSchoolSports().hashCode() : 0);
+        result = 31 * result + (getAttendanceRate() != null ? getAttendanceRate().hashCode() : 0);
+        result = 31 * result + (getPctStuEnoughVariety() != null ? getPctStuEnoughVariety().hashCode() : 0);
+        result = 31 * result + (getPctStuSafe() != null ? getPctStuSafe().hashCode() : 0);
+        result = 31 * result + (getSchoolAccessibilityDescription() != null ? getSchoolAccessibilityDescription().hashCode() : 0);
+        result = 31 * result + (getDirections1() != null ? getDirections1().hashCode() : 0);
+        result = 31 * result + (getRequirement11() != null ? getRequirement11().hashCode() : 0);
+        result = 31 * result + (getRequirement21() != null ? getRequirement21().hashCode() : 0);
+        result = 31 * result + (getRequirement31() != null ? getRequirement31().hashCode() : 0);
+        result = 31 * result + (getRequirement41() != null ? getRequirement41().hashCode() : 0);
+        result = 31 * result + (getRequirement51() != null ? getRequirement51().hashCode() : 0);
+        result = 31 * result + (getOfferRate1() != null ? getOfferRate1().hashCode() : 0);
+        result = 31 * result + (getProgram1() != null ? getProgram1().hashCode() : 0);
+        result = 31 * result + (getCode1() != null ? getCode1().hashCode() : 0);
+        result = 31 * result + (getInterest1() != null ? getInterest1().hashCode() : 0);
+        result = 31 * result + (getMethod1() != null ? getMethod1().hashCode() : 0);
+        result = 31 * result + (getSeats9ge1() != null ? getSeats9ge1().hashCode() : 0);
+        result = 31 * result + (getGrade9gefilledflag1() != null ? getGrade9gefilledflag1().hashCode() : 0);
+        result = 31 * result + (getGrade9geapplicants1() != null ? getGrade9geapplicants1().hashCode() : 0);
+        result = 31 * result + (getSeats9swd1() != null ? getSeats9swd1().hashCode() : 0);
+        result = 31 * result + (getGrade9swdfilledflag1() != null ? getGrade9swdfilledflag1().hashCode() : 0);
+        result = 31 * result + (getGrade9swdapplicants1() != null ? getGrade9swdapplicants1().hashCode() : 0);
+        result = 31 * result + (getSeats101() != null ? getSeats101().hashCode() : 0);
+        result = 31 * result + (getAdmissionspriority11() != null ? getAdmissionspriority11().hashCode() : 0);
+        result = 31 * result + (getAdmissionspriority21() != null ? getAdmissionspriority21().hashCode() : 0);
+        result = 31 * result + (getAdmissionspriority31() != null ? getAdmissionspriority31().hashCode() : 0);
+        result = 31 * result + (getGrade9geapplicantsperseat1() != null ? getGrade9geapplicantsperseat1().hashCode() : 0);
+        result = 31 * result + (getGrade9swdapplicantsperseat1() != null ? getGrade9swdapplicantsperseat1().hashCode() : 0);
+        result = 31 * result + (getPrimaryAddressLine1() != null ? getPrimaryAddressLine1().hashCode() : 0);
+        result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
+        result = 31 * result + (getZip() != null ? getZip().hashCode() : 0);
+        result = 31 * result + (getStateCode() != null ? getStateCode().hashCode() : 0);
+        result = 31 * result + (getLatitude() != null ? getLatitude().hashCode() : 0);
+        result = 31 * result + (getLongitude() != null ? getLongitude().hashCode() : 0);
+        result = 31 * result + (getCommunityBoard() != null ? getCommunityBoard().hashCode() : 0);
+        result = 31 * result + (getCouncilDistrict() != null ? getCouncilDistrict().hashCode() : 0);
+        result = 31 * result + (getCensusTract() != null ? getCensusTract().hashCode() : 0);
+        result = 31 * result + (getBin() != null ? getBin().hashCode() : 0);
+        result = 31 * result + (getBbl() != null ? getBbl().hashCode() : 0);
+        result = 31 * result + (getNta() != null ? getNta().hashCode() : 0);
+        result = 31 * result + (getBorough() != null ? getBorough().hashCode() : 0);
+        result = 31 * result + (getAcademicopportunities3() != null ? getAcademicopportunities3().hashCode() : 0);
+        result = 31 * result + (getLanguageClasses() != null ? getLanguageClasses().hashCode() : 0);
+        result = 31 * result + (getAddtlInfo1() != null ? getAddtlInfo1().hashCode() : 0);
+        result = 31 * result + (getTransfer() != null ? getTransfer().hashCode() : 0);
+        result = 31 * result + (getEligibility1() != null ? getEligibility1().hashCode() : 0);
+        return result;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
