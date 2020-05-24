@@ -93,7 +93,7 @@ dependencies {
 
     implementation(Dependencies.Glide.CORE)
     implementation(Dependencies.Glide.TRANSFORMATION)
-//    kapt(dependencies.AnnotationProcessor.GLIDE)
+    kapt(AnnotationProcessor.GLIDE)
     annotationProcessor(AnnotationProcessor.GLIDE)
     implementation(Dependencies.Glide.OKHTTP_INTEGRATION) {
         this.exclude("glide-parent")

@@ -2,4 +2,8 @@
 <resources>
     <color name="blue_gray400">#78909C</color>
     <color name="blue_gray500">#607D8B</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="blue_gray700">#455A64</color>
 </resources>

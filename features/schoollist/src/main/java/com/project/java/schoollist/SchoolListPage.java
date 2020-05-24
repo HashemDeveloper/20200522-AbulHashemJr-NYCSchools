@@ -11,9 +11,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.project.java.core.viewmodel.ViewModelFactory;
 import com.project.java.schoollist.databinding.FragmentSchoolListPageBinding;
+import com.project.java.schoollist.recycler.SchoolListAdapter;
 
 import javax.inject.Inject;
 
@@ -21,7 +23,8 @@ import dagger.android.support.AndroidSupportInjection;
 import timber.log.Timber;
 import utils.ViewState;
 
-public class SchoolListPage extends Fragment {
+public class SchoolListPage extends Fragment implements SchoolListAdapter.SchoolListItemClickListener {
+    private SchoolListAdapter schoolListAdapter;
     private FragmentSchoolListPageBinding binding;
     @Inject
     public SchoolListPageViewModel.Factory viewModelFactory;
@@ -45,8 +48,11 @@ public class SchoolListPage extends Fragment {
         this.schoolListPageViewModel = new ViewModelProvider(requireActivity(), new ViewModelFactory<SchoolListPageViewModel>(this.viewModelFactory, requireActivity(), savedInstanceState))
         .get(SchoolListPageViewModel.class);
         super.onViewCreated(view, savedInstanceState);
+        this.binding.fragmentSchoolListRecyclerViewId.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        this.schoolListAdapter = new SchoolListAdapter(14, "200x200", "", this);
+        this.binding.fragmentSchoolListRecyclerViewId.setAdapter(this.schoolListAdapter);
         this.schoolListPageViewModel.getSchoolListData().observe(getViewLifecycleOwner(), schoolDirectories -> {
-            Timber.e(schoolDirectories.toString());
+            this.schoolListAdapter.submitList(schoolDirectories);
         });
         this.schoolListPageViewModel.getStatusLiveData().observe(getViewLifecycleOwner(), schoolListObserver());
     }
@@ -56,25 +62,45 @@ public class SchoolListPage extends Fragment {
             if (o instanceof ViewState) {
                 switch (((ViewState) o).getStatusType()) {
                     case LOADING: {
-                        Timber.e("Loading");
+                        displayProgressBar(true);
                         break;
                     }
                     case COMPLETE: {
-                        Timber.e("Completed");
+                        displayProgressBar(false);
                         break;
                     }
                     case ERROR: {
-                        Timber.e("Error%s", ((ViewState) o).getErrorMessage());
+                        displayProgressBar(false);
+                        if (BuildConfig.DEBUG) {
+                            Timber.e("Error%s", ((ViewState) o).getErrorMessage());
+                        }
                         break;
                     }
                 }
             }
         };
     }
+    private void displayProgressBar(boolean isShow) {
+        this.binding.fragmentSchoolListPageProgressBarId.setVisibility(isShow ? View.VISIBLE : View.GONE);
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
     }
-}
 
-//https://maps.googleapis.com/maps/api/staticmap?center=40.73653,-73.9927&zoom=14&size=600x600&key=AIzaSyBdEtj0atb4fbvEdq7uD8He1d9iurMVvWg
+    @Override
+    public <T> void onItemClicked(SchoolListAdapter.ItemClickType type, T data) {
+        switch (type) {
+            case WEBSITE: {
+                String url = (String) data;
+                Timber.e(url);
+                break;
+            }
+            case DIRECTION: {
+                String direction = (String) data;
+                Timber.e(direction);
+                break;
+            }
+        }
+    }
+}
