@@ -101,6 +101,10 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
                 Timber.e(direction);
                 break;
             }
+            case NAVIGATE: {
+                String id = (String) data;
+                break;
+            }
         }
     }
 }

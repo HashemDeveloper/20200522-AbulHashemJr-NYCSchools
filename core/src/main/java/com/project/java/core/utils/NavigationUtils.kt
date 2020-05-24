@@ -1,3 +1,4 @@
+@file:JvmName("NavigationUtil")
 package com.project.java.core.utils
 
 import android.net.Uri
