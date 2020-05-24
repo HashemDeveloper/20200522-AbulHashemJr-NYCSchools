@@ -4,5 +4,5 @@ object BuildModules {
     const val REMOTE_DATA = ":data:remote"
     const val MODELS = ":models"
     const val SCHOOL_LIST_PAGE = ":features:schoollist"
-
+    const val ASSETS = ":assets"
 }

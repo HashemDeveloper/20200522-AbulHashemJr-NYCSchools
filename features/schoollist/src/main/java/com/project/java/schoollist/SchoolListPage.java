@@ -76,3 +76,5 @@ public class SchoolListPage extends Fragment {
         super.onDestroy();
     }
 }
+
+//https://maps.googleapis.com/maps/api/staticmap?center=40.73653,-73.9927&zoom=14&size=600x600&key=AIzaSyBdEtj0atb4fbvEdq7uD8He1d9iurMVvWg
