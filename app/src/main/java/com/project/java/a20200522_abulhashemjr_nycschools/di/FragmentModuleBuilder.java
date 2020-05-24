@@ -1,5 +1,6 @@
 package com.project.java.a20200522_abulhashemjr_nycschools.di;
 
+import com.project.java.schooldetails.SchoolDetailsPage;
 import com.project.java.schoollist.SchoolListPage;
 
 import dagger.Module;
@@ -9,4 +10,6 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class FragmentModuleBuilder {
     @ContributesAndroidInjector
     abstract SchoolListPage contributeSchoolListPage();
+    @ContributesAndroidInjector
+    abstract SchoolDetailsPage contributeSchoolDetailsPage();
 }

@@ -6,6 +6,7 @@ include ':features:schoollist'
 include ':data:remote'
 include ':models'
 include ':assets'
+include ':features:schooldetails'
 
 rootProject.buildFileName = "build.gradle.kts"
 

@@ -1,5 +1,6 @@
 package com.project.java.schoollist;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.project.java.core.utils.NavigationUtil;
 import com.project.java.core.viewmodel.ViewModelFactory;
 import com.project.java.schoollist.databinding.FragmentSchoolListPageBinding;
 import com.project.java.schoollist.recycler.SchoolListAdapter;
@@ -26,6 +30,7 @@ import utils.ViewState;
 public class SchoolListPage extends Fragment implements SchoolListAdapter.SchoolListItemClickListener {
     private SchoolListAdapter schoolListAdapter;
     private FragmentSchoolListPageBinding binding;
+    private NavController navController;
     @Inject
     public SchoolListPageViewModel.Factory viewModelFactory;
     private SchoolListPageViewModel schoolListPageViewModel;
@@ -48,6 +53,7 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
         this.schoolListPageViewModel = new ViewModelProvider(requireActivity(), new ViewModelFactory<SchoolListPageViewModel>(this.viewModelFactory, requireActivity(), savedInstanceState))
         .get(SchoolListPageViewModel.class);
         super.onViewCreated(view, savedInstanceState);
+        this.navController = Navigation.findNavController(this.binding.getRoot());
         this.binding.fragmentSchoolListRecyclerViewId.setLayoutManager(new LinearLayoutManager(this.getContext()));
         this.schoolListAdapter = new SchoolListAdapter(14, "200x200", "", this);
         this.binding.fragmentSchoolListRecyclerViewId.setAdapter(this.schoolListAdapter);
@@ -99,6 +105,12 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
             case DIRECTION: {
                 String direction = (String) data;
                 Timber.e(direction);
+                break;
+            }
+            case NAVIGATE: {
+                String id = (String) data;
+
+                NavigationUtil.navigateUriWithDefaultOptions(this.navController, Uri.parse("nycschools://schooldetailspage/" + id), null);
                 break;
             }
         }

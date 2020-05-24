@@ -5,4 +5,5 @@ object BuildModules {
     const val MODELS = ":models"
     const val SCHOOL_LIST_PAGE = ":features:schoollist"
     const val ASSETS = ":assets"
+    const val SCHOOL_DETAILS = ":features:schooldetails"
 }

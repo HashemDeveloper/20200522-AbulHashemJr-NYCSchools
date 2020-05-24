@@ -80,6 +80,7 @@ dependencies {
     implementation(project(BuildModules.CORE))
     implementation(project(BuildModules.REMOTE_DATA))
     implementation(project(BuildModules.SCHOOL_LIST_PAGE))
+    implementation(project(BuildModules.SCHOOL_DETAILS))
     
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.AndroidX.APP_COMPAT)

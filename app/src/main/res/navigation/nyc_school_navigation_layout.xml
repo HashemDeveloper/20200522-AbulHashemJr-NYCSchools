@@ -10,5 +10,19 @@
         android:name="com.project.java.schoollist.SchoolListPage"
         android:label="List Of Schools"
         tools:layout="@layout/fragment_school_list_page"
-        />
+        >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="nycschools://schoollistpage"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/schoolDetailsPage"
+        android:name="com.project.java.schooldetails.SchoolDetailsPage"
+        android:label="SchoolDetailsPage" >
+       <deepLink
+           android:id="@+id/deepLink"
+           app:uri="nycschools://schooldetailspage/{school_id}"
+           />
+    </fragment>
 </navigation>

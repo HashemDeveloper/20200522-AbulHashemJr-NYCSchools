@@ -11,6 +11,7 @@ import androidx.paging.PagedListAdapter;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 import com.project.java.core.base.BaseViewHolder;
 import com.project.java.core.utils.Constants;
@@ -39,6 +40,11 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
     public BaseViewHolder<?> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_school_list_recycler_item_layout, parent, false);
         SchoolListViewHolder schoolListViewHolder = new SchoolListViewHolder(view, parent.getContext(), this.zoomSize, this.imageSize, this.mapApiKey);
+        schoolListViewHolder.getCardView().setOnClickListener(onClick -> {
+            SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
+            String id = schoolDirectory.getDbn();
+            this.listener.onItemClicked(ItemClickType.NAVIGATE, id);
+        });
         schoolListViewHolder.getWebsiteBt().setOnClickListener(view1 -> {
             SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
             this.listener.onItemClicked(ItemClickType.WEBSITE, schoolDirectory.getWebsite() != null ? schoolDirectory.getWebsite() : "");
@@ -62,6 +68,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         private int zoomSize;
         private String imageSize;
         private Context context;
+        private MaterialCardView cardView;
         private MaterialTextView titleView;
         private FlowTextView overviewTextView;
         private MaterialButton websiteBt;
@@ -71,6 +78,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         SchoolListViewHolder(@NonNull View itemView, Context context, int zoomSize, String imageSize, String mapApiKey) {
             super(itemView);
             this.context = context;
+            this.cardView = itemView.findViewById(R.id.fragment_school_list_item_card_view_id);
             this.titleView = itemView.findViewById(R.id.fragment_school_list_school_title_id);
             this.overviewTextView = itemView.findViewById(R.id.fragment_school_list_overview_text_view_id);
             this.websiteBt = itemView.findViewById(R.id.fragment_school_list_website_bt_id);
@@ -103,11 +111,14 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
             }
         }
 
-        public MaterialButton getWebsiteBt() {
+        MaterialButton getWebsiteBt() {
             return this.websiteBt;
         }
-        public MaterialButton getDirectionBt() {
+        MaterialButton getDirectionBt() {
             return this.directionBt;
+        }
+        MaterialCardView getCardView() {
+            return this.cardView;
         }
     }
     public interface SchoolListItemClickListener {
@@ -116,6 +127,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
 
     public enum ItemClickType {
         WEBSITE,
-        DIRECTION
+        DIRECTION,
+        NAVIGATE
     }
 }
