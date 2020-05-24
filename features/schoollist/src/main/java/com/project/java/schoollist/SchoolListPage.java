@@ -103,14 +103,9 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
                 Timber.e(url);
                 break;
             }
-            case DIRECTION: {
-                String direction = (String) data;
-                Timber.e(direction);
-                break;
-            }
+            case DIRECTION:
             case NAVIGATE: {
                 String id = (String) data;
-
                 NavigationUtil.navigateUriWithDefaultOptions(this.navController, Uri.parse("nycschools://schooldetailspage/" + id), null);
                 break;
             }

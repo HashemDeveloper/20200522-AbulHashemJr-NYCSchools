@@ -7,14 +7,157 @@
         android:id="@+id/fragment_school_details_page_container_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         >
+
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+            android:id="@+id/fragment_sat_score_page_school_name_title_view_id"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/blue_gray400"
+            android:fontFamily="@font/archivo_black"
+            android:padding="8dp"
             android:text="@string/school_title"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_sat_score_page_sub_title_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideLine"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideLine"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_sat_score_page_school_name_title_view_id"
+            android:textAlignment="textStart"
+            android:layout_marginTop="16dp"
+            android:text="@string/sat_score"
+            android:textColor="@color/blue_gray700"
+            android:textSize="32sp"
+            />
+
+        <TableLayout
+            android:id="@+id/fragment_sat_score_tab_layout_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideLine"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideLine"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_sat_score_page_sub_title_id"
+            android:layout_marginTop="16dp"
+            >
+            <TableRow>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_math_title_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/math_score"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_reading_title_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_writing_title_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/writing"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_total_student_title_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_takers"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+            </TableRow>
+            <TableRow>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_math_result_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/math_score"
+                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_reading_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading"
+                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_writing_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/writing"
+                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_sat_score_total_student_view_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_takers"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/blue_gray500"
+                    />
+            </TableRow>
+        </TableLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.96" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -69,7 +69,7 @@ public class SchoolDetailsPage extends Fragment {
                             if (((ViewState) o).getData() != null) {
                                 List<SATScores> satScores = (List<SATScores>) ((ViewState) o).getData();
                                 if (satScores != null && !satScores.isEmpty()) {
-                                    Timber.e(satScores.get(0).getSchoolName());
+                                    setupSatScoreView(satScores);
                                 }
                             }
                             break;
@@ -81,5 +81,18 @@ public class SchoolDetailsPage extends Fragment {
                 }
             }
         });
+    }
+
+    private void setupSatScoreView(List<SATScores> satScores) {
+        String schoolName = satScores.get(0).getSchoolName();
+        String mathScore = satScores.get(0).getSatMathAvgScore();
+        String readingScore = satScores.get(0).getSatCriticalReadingAvgScore();
+        String writing = satScores.get(0).getSatWritingAvgScore();
+        String totalTestTakers = satScores.get(0).getNumOfSatTestTakers();
+        this.binding.fragmentSatScorePageSchoolNameTitleViewId.setText(schoolName);
+        this.binding.fragmentSatScoreMathResultViewId.setText(mathScore);
+        this.binding.fragmentSatScoreReadingViewId.setText(readingScore);
+        this.binding.fragmentSatScoreWritingViewId.setText(writing);
+        this.binding.fragmentSatScoreTotalStudentViewId.setText(totalTestTakers);
     }
 }

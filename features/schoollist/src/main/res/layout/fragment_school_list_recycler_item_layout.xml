@@ -121,7 +121,7 @@
                 android:id="@+id/fragment_school_list_direction_bt_id"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/direction"
+                android:text="@string/sat_score"
                 app:cornerRadius="4dp"
                 app:elevation="4dp"
                 android:layout_marginStart="4dp"
