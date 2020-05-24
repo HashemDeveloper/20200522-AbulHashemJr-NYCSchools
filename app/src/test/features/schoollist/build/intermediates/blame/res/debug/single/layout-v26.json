@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-v26/abc_screen_toolbar.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/f1b0b4e0a0e944add68654f8002b901b/appcompat-1.1.0/res/layout-v26/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schoollist/build/intermediates/res/merged/debug/layout-v26/mtrl_calendar_month.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/layout-v26/mtrl_calendar_month.xml"
+    }
+]

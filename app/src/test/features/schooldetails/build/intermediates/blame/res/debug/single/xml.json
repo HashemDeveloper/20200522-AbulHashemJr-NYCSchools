@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schooldetails/build/intermediates/res/merged/debug/xml/standalone_badge.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/xml/standalone_badge.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schooldetails/build/intermediates/res/merged/debug/xml/standalone_badge_gravity_bottom_end.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/xml/standalone_badge_gravity_bottom_end.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schooldetails/build/intermediates/res/merged/debug/xml/standalone_badge_gravity_top_start.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/xml/standalone_badge_gravity_top_start.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schooldetails/build/intermediates/res/merged/debug/xml/standalone_badge_offset.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/xml/standalone_badge_offset.xml"
+    },
+    {
+        "merged": "/Users/abulhashemjr/AndroidStudioProjects/20200522AbulHashemJrNYCSchools/features/schooldetails/build/intermediates/res/merged/debug/xml/standalone_badge_gravity_bottom_start.xml",
+        "source": "/Users/abulhashemjr/.gradle/caches/transforms-2/files-2.1/560f7e06d5a97e7b706c581448ead237/material-1.2.0-alpha06/res/xml/standalone_badge_gravity_bottom_start.xml"
+    }
+]
