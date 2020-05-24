@@ -86,9 +86,10 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
             this.itemView.setTag(item);
             if (item != null) {
                 String title = item.getSchoolName() != null ? item.getSchoolName() : "";
+                String firstWord = Constants.Companion.getFirstWord(title);
                 String overView = item.getOverviewParagraph() != null ? item.getOverviewParagraph() : item.getEllPrograms();
                 if (this.titleView != null) {
-                    this.titleView.setText(title);
+                    Constants.Companion.boldFirstWord(firstWord.length(), title, this.titleView);
                 }
                 if (this.overviewTextView != null) {
                     this.overviewTextView.setText(overView);

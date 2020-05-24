@@ -4,7 +4,9 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Spannable
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
+import android.text.style.RelativeSizeSpan
 import android.text.style.StyleSpan
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -34,6 +36,7 @@ class Constants {
                 end,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
+            fancySentence.setSpan(RelativeSizeSpan(1.5f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             textView.text = fancySentence
         }
     }
