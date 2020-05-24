@@ -31,7 +31,7 @@ public class SchoolDetailsPage extends Fragment {
     public SchoolDetailPageViewModel.Factory viewModelFactory;
     private NavController navController;
     private SchoolDetailPageViewModel schoolDetailPageViewModel;
-
+    private String schoolName;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidSupportInjection.inject(this);
@@ -54,6 +54,7 @@ public class SchoolDetailsPage extends Fragment {
         String id = "";
         if (getArguments() != null) {
             id = getArguments().getString("school_id");
+            this.schoolName = getArguments().getString("school_name");
         }
         this.schoolDetailPageViewModel.fetchSATScores(id);
         this.schoolDetailPageViewModel.getViewStatusLiveData().observe(getViewLifecycleOwner(), new Observer() {
@@ -68,9 +69,7 @@ public class SchoolDetailsPage extends Fragment {
                         case SUCCESS: {
                             if (((ViewState) o).getData() != null) {
                                 List<SATScores> satScores = (List<SATScores>) ((ViewState) o).getData();
-                                if (satScores != null && !satScores.isEmpty()) {
-                                    Timber.e(satScores.get(0).getSchoolName());
-                                }
+                                setupSatScoreView(satScores);
                             }
                             break;
                         }
@@ -81,5 +80,18 @@ public class SchoolDetailsPage extends Fragment {
                 }
             }
         });
+    }
+
+    private void setupSatScoreView(List<SATScores> satScores) {
+        String schoolName = (satScores != null && !satScores.isEmpty() && satScores.get(0).getSchoolName() != null) ? satScores.get(0).getSchoolName() : this.schoolName;
+        String mathScore = (satScores != null && !satScores.isEmpty() && satScores.get(0).getSatMathAvgScore() != null) ? satScores.get(0).getSatMathAvgScore() : "NULL";
+        String readingScore = (satScores != null && !satScores.isEmpty() && satScores.get(0).getSatCriticalReadingAvgScore() != null) ? satScores.get(0).getSatCriticalReadingAvgScore() : "NULL";
+        String writing = (satScores != null && !satScores.isEmpty() && satScores.get(0).getSatWritingAvgScore() != null) ? satScores.get(0).getSatWritingAvgScore() : "NULL";
+        String totalTestTakers = (satScores != null && !satScores.isEmpty() && satScores.get(0).getNumOfSatTestTakers() != null) ? satScores.get(0).getNumOfSatTestTakers() : "NULL";
+        this.binding.fragmentSatScorePageSchoolNameTitleViewId.setText(schoolName);
+        this.binding.fragmentSatScoreMathResultViewId.setText(mathScore);
+        this.binding.fragmentSatScoreReadingViewId.setText(readingScore);
+        this.binding.fragmentSatScoreWritingViewId.setText(writing);
+        this.binding.fragmentSatScoreTotalStudentViewId.setText(totalTestTakers);
     }
 }

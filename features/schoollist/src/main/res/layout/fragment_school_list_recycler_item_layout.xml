@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="top"
-                app:constraint_referenced_ids="overviewGuideLine,fragment_school_list_website_bt_id,fragment_school_list_direction_bt_id"
+                app:constraint_referenced_ids="overviewGuideLine,fragment_school_list_website_bt_id,fragment_school_list_sat_score_bt_id"
                 tools:layout_editor_absoluteY="731dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -118,10 +118,10 @@
                 />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/fragment_school_list_direction_bt_id"
+                android:id="@+id/fragment_school_list_sat_score_bt_id"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/direction"
+                android:text="@string/sat_score"
                 app:cornerRadius="4dp"
                 app:elevation="4dp"
                 android:layout_marginStart="4dp"

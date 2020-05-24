@@ -4,4 +4,9 @@
     <string name="school_title">Title</string>
     <string name="website">Website</string>
     <string name="direction">Direction</string>
+    <string name="sat_score">SAT Scores</string>
+    <string name="math_score">MATH</string>
+    <string name="reading">READING</string>
+    <string name="writing">WRITING</string>
+    <string name="test_takers">Total Test Takers</string>
 </resources>

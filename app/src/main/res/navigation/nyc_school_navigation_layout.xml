@@ -22,7 +22,7 @@
         android:label="SchoolDetailsPage" >
        <deepLink
            android:id="@+id/deepLink"
-           app:uri="nycschools://schooldetailspage/{school_id}"
+           app:uri="nycschools://schooldetailspage/{school_id}/{school_name}"
            />
     </fragment>
 </navigation>
