@@ -64,6 +64,14 @@ dependencies {
     implementation(project(BuildModules.CORE))
     implementation(project(BuildModules.REMOTE_DATA))
     implementation(project(BuildModules.MODELS))
+    implementation(project(BuildModules.ASSETS))
+    implementation(Dependencies.Glide.TRANSFORMATION)
+    kapt(AnnotationProcessor.GLIDE)
+    implementation(Dependencies.Glide.OKHTTP_INTEGRATION) {
+        this.exclude("glide-parent")
+    }
+    implementation(Dependencies.PAGINATION.CORE)
+    implementation(Dependencies.FLOWABLE_TEXTVIEW)
     implementation(Dependencies.KOTLIN)
     addTestDependencies()
     commonFeaturesDependencies()

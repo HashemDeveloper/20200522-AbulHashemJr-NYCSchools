@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="description">School Overview</string>
+    <string name="school_title">Title</string>
+    <string name="website">Website</string>
+    <string name="direction">Direction</string>
+</resources>

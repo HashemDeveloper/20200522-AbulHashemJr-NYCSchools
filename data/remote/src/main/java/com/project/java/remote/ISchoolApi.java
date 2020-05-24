@@ -13,9 +13,5 @@ import retrofit2.http.Query;
 public interface ISchoolApi {
     @Headers({"Content-Type: application/json"})
     @GET("resource/s3k6-pzi2.json")
-    Observable<Response<List<SchoolDirectory>>> getListOfSchools();
-
-    @Headers({"Content-Type: application/json"})
-    @GET("resource/s3k6-pzi2.json")
-    Observable<Response<List<SchoolDirectory>>> getListOfSchoolsByLimit(@Query("limit") int limit, @Query("offset") int offSet);
+    Observable<Response<List<SchoolDirectory>>> getListOfSchools(@Query("$limit") int limit);
 }

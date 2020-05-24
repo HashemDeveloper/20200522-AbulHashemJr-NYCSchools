@@ -34,7 +34,7 @@ public class SchoolRepository implements ISchoolRepository {
     public void retrieveSchoolList() {
         this.viewStatusLiveData.postLoading();
         // passing empty string Because pagination for this API server currently not working
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools()
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(30)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {

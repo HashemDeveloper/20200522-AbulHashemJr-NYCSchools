@@ -5,21 +5,27 @@ public class ViewState<T> {
     private T data;
     private String errorMessage;
 
-    public ViewState<T> isLoading() {
+    ViewState<T> isLoading() {
         this.statusType = StatusType.LOADING;
         this.data = null;
         this.errorMessage = "";
         return this;
     }
 
-    public ViewState<T> onSuccess(T data) {
+    ViewState<T> onSuccess(T data) {
         this.statusType = StatusType.SUCCESS;
         this.data = data;
         this.errorMessage = "";
         return this;
     }
 
-    public ViewState<T> onError(String error) {
+    ViewState<T> onComplete() {
+        this.statusType = StatusType.COMPLETE;
+        this.errorMessage = "";
+        return this;
+    }
+
+    ViewState<T> onError(String error) {
         this.statusType = StatusType.ERROR;
         this.data = null;
         this.errorMessage = error;
