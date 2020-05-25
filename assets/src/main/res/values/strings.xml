@@ -9,4 +9,6 @@
     <string name="reading">READING</string>
     <string name="writing">WRITING</string>
     <string name="test_takers">Total Test Takers</string>
+    <string name="navtype_google">Google</string>
+    <string name="navtype_waze">Waze</string>
 </resources>
