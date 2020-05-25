@@ -35,7 +35,7 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
      @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, SchoolDirectory> callback) {
         this.viewStatusLiveData.postLoading();
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(PAGE_SIZE, initialOffSet)
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(PAGE_SIZE, initialOffSet, "school_name")
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {
@@ -55,7 +55,7 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
         this.savedStateHandle.remove(PAGE_LIST_STATE);
         this.initialOffSet++;
         int count = this.initialOffSet;
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key, count)
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key, count, "school_name")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(result -> {
@@ -73,7 +73,7 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
     @Override
     public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, SchoolDirectory> callback) {
         this.savedStateHandle.remove(PAGE_LIST_STATE);
-        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key, this.initialOffSet++)
+        this.compositeDisposable.add(this.iSchoolApi.getListOfSchools(params.key, this.initialOffSet++, "school_name")
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(result -> {
