@@ -14,23 +14,23 @@ import com.project.java.remote.paging.SchoolListPageDataSource;
 
 import javax.inject.Inject;
 
-public class SchoolListPageViewModel extends ViewModel {
+class SchoolListPageViewModel extends ViewModel {
     private SavedStateHandle savedStateHandle;
     private ISchoolApi iSchoolApi;
     private SchoolListPageDataSource.Factory schoolListPageDataSourceFactory;
     private LiveData<PagedList<SchoolDirectory>> schoolListData;
     private LiveData statusLiveData;
 
-    public SchoolListPageViewModel(SavedStateHandle savedStateHandle, ISchoolApi iSchoolApi) {
+    private SchoolListPageViewModel(SavedStateHandle savedStateHandle, ISchoolApi iSchoolApi) {
         this.savedStateHandle = savedStateHandle;
         this.iSchoolApi = iSchoolApi;
     }
 
-    public LiveData<PagedList<SchoolDirectory>> getSchoolListData() {
+    LiveData<PagedList<SchoolDirectory>> getSchoolListData() {
         this.schoolListData = new LivePagedListBuilder<>(getSchoolListPageDataSourceFactory(), 20).build();
         return this.schoolListData;
     }
-    public LiveData getStatusLiveData() {
+    LiveData getStatusLiveData() {
         this.statusLiveData = Transformations.switchMap(getSchoolListPageDataSourceFactory().getSourceLiveData(), SchoolListPageDataSource::getStatusLiveData);
         return this.statusLiveData;
     }
