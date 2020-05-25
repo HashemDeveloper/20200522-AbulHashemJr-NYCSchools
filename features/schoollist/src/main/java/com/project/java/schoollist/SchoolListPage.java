@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -33,7 +34,7 @@ import timber.log.Timber;
 import utils.NavigationType;
 import utils.ViewState;
 
-public class SchoolListPage extends Fragment implements SchoolListAdapter.SchoolListItemClickListener {
+public class SchoolListPage extends Fragment implements SchoolListAdapter.SchoolListItemClickListener, SchoolListPageViewModel.StatusListener {
     private static final String TAG = SchoolListPage.class.getCanonicalName();
     private SchoolListAdapter schoolListAdapter;
     private FragmentSchoolListPageBinding binding;
@@ -49,6 +50,7 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
         super.onCreate(savedInstanceState);
         this.schoolListPageViewModel = new ViewModelProvider(requireActivity(), new ViewModelFactory<SchoolListPageViewModel>(this.viewModelFactory, requireActivity(), savedInstanceState))
                 .get(SchoolListPageViewModel.class);
+        this.schoolListPageViewModel.setupStatusChangeListener(this);
     }
 
     @Nullable
@@ -69,8 +71,13 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
         this.schoolListPageViewModel.getSchoolListData().observe(getViewLifecycleOwner(), schoolDirectories -> {
             this.schoolListAdapter.submitList(schoolDirectories);
         });
-        this.schoolListPageViewModel.getStatusLiveData().observe(getViewLifecycleOwner(), schoolListObserver());
         this.directionSheetDialog = new BottomSheetDialog();
+    }
+
+
+    @Override
+    public void onStatusChanged(LiveData liveData) {
+        liveData.observe(getViewLifecycleOwner(), schoolListObserver());
     }
 
     private Observer<Object> schoolListObserver() {
@@ -104,9 +111,6 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
         super.onDestroy();
         if (this.directionSheetDialog != null && this.directionSheetDialog.getClickLiveData() != null) {
             this.directionSheetDialog.getClickLiveData().removeObserver(bottomSheetClickObserver("", ""));
-        }
-        if (this.schoolListPageViewModel.getStatusLiveData() != null) {
-            this.schoolListPageViewModel.getStatusLiveData().removeObserver(schoolListObserver());
         }
     }
 
@@ -200,5 +204,4 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
             }
         }
     }
-
 }
