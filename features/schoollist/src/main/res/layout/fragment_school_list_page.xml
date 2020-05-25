@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_school_list_container_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".SchoolListPage"
         >
 
@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
         <ProgressBar
             android:id="@+id/fragment_school_list_page_progress_bar_id"
-            style="?android:attr/progressBarStyleLarge"
+            style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminateDrawable="@drawable/custom_progress_bar_id"

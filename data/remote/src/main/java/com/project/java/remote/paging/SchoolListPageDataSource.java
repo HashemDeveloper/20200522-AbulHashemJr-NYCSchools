@@ -2,7 +2,6 @@ package com.project.java.remote.paging;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.paging.DataSource;
 import androidx.paging.PageKeyedDataSource;
@@ -13,6 +12,7 @@ import com.project.java.remote.ISchoolApi;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -20,7 +20,7 @@ import timber.log.Timber;
 import utils.ViewStatusLiveData;
 
 public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, SchoolDirectory> {
-    public static final String PAGE_LIST_STATE = "PageListState";
+    private static final String PAGE_LIST_STATE = "PageListState";
     private SavedStateHandle savedStateHandle;
     private static final int PAGE_SIZE = 30;
     private int initialOffSet = 0;
@@ -28,7 +28,7 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private ViewStatusLiveData viewStatusLiveData = new ViewStatusLiveData();
 
-    public SchoolListPageDataSource(ISchoolApi iSchoolApi, SavedStateHandle savedStateHandle) {
+    private SchoolListPageDataSource(ISchoolApi iSchoolApi, SavedStateHandle savedStateHandle) {
        this.iSchoolApi = iSchoolApi;
        this.savedStateHandle = savedStateHandle;
     }
@@ -43,9 +43,9 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
                 List<SchoolDirectory> schoolDirectoryList = result.body();
                 if (schoolDirectoryList != null && !schoolDirectoryList.isEmpty()) {
                     this.savedStateHandle.set(PAGE_LIST_STATE, schoolDirectoryList);
-                    this.viewStatusLiveData.onComplete();
                     callback.onResult(schoolDirectoryList, null, 1);
                 }
+                this.viewStatusLiveData.onComplete();
             }
         }, this::displayError));
     }
@@ -105,22 +105,29 @@ public class SchoolListPageDataSource extends PageKeyedDataSource<Integer, Schoo
     public static class Factory extends DataSource.Factory<Integer, SchoolDirectory> {
         private SavedStateHandle savedStateHandle;
         private ISchoolApi iSchoolApi;
-        private SchoolListPageDataSource schoolListPageDataSource;
-        private MutableLiveData<SchoolListPageDataSource> sourceLiveData = new MutableLiveData<>();
+        private FactoryCreateListener listener;
+        private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-        public Factory(ISchoolApi iSchoolApi, SavedStateHandle savedStateHandle) {
+        public Factory(ISchoolApi iSchoolApi, SavedStateHandle savedStateHandle, FactoryCreateListener listener) {
             this.iSchoolApi = iSchoolApi;
             this.savedStateHandle = savedStateHandle;
+            this.listener = listener;
         }
-        public LiveData<SchoolListPageDataSource> getSourceLiveData() {
-            return this.sourceLiveData;
-        }
+
         @NonNull
         @Override
         public DataSource<Integer, SchoolDirectory> create() {
-            this.schoolListPageDataSource = new SchoolListPageDataSource(this.iSchoolApi, this.savedStateHandle);
-            this.sourceLiveData.postValue(this.schoolListPageDataSource);
-            return this.schoolListPageDataSource;
+            SchoolListPageDataSource schoolListPageDataSource = new SchoolListPageDataSource(this.iSchoolApi, this.savedStateHandle);
+            // This is a hack because Transformation.switch(..) is not switching the liveData.
+            this.compositeDisposable.add(Observable.just(true).observeOn(AndroidSchedulers.mainThread()).subscribe(r -> {
+                this.listener.onPageDataSourceCreated(schoolListPageDataSource);
+            }));
+            return schoolListPageDataSource;
         }
+    }
+
+
+    public interface FactoryCreateListener {
+        void onPageDataSourceCreated(SchoolListPageDataSource dataSource);
     }
 }
