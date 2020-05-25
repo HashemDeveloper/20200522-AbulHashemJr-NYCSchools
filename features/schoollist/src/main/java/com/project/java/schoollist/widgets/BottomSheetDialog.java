@@ -17,9 +17,6 @@ import utils.NavigationType;
 public class BottomSheetDialog extends BaseBottomSheet {
     private MutableLiveData<NavigationType> clickLiveData = new MutableLiveData<>();
 
-    private MaterialTextView wazebt;
-    private MaterialTextView googleBt;
-
     @Override
     public int getItemLayout() {
         return R.layout.fragment_bottom_sheet_dialog;
@@ -32,10 +29,10 @@ public class BottomSheetDialog extends BaseBottomSheet {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        this.wazebt = view.findViewById(R.id.bottom_sheet_use_waze_opt_text_view_id);
-        this.googleBt = view.findViewById(R.id.bottom_sheet_use_google_opt_text_view_id);
-        this.wazebt.setOnClickListener(onClick -> this.clickLiveData.postValue(NavigationType.WAZE));
-        this.googleBt.setOnClickListener(onClick -> this.clickLiveData.postValue(NavigationType.GOOGLE));
+        MaterialTextView wazebt = view.findViewById(R.id.bottom_sheet_use_waze_opt_text_view_id);
+        MaterialTextView googleBt = view.findViewById(R.id.bottom_sheet_use_google_opt_text_view_id);
+        wazebt.setOnClickListener(onClick -> this.clickLiveData.postValue(NavigationType.WAZE));
+        googleBt.setOnClickListener(onClick -> this.clickLiveData.postValue(NavigationType.GOOGLE));
         super.onViewCreated(view, savedInstanceState);
     }
     public LiveData<NavigationType> getClickLiveData() {
