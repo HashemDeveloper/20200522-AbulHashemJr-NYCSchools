@@ -21,6 +21,7 @@ import com.project.java.core.utils.NavigationUtil;
 import com.project.java.core.viewmodel.ViewModelFactory;
 import com.project.java.schoollist.databinding.FragmentSchoolListPageBinding;
 import com.project.java.schoollist.recycler.SchoolListAdapter;
+import com.project.java.schoollist.widgets.BottomSheetDialog;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -33,9 +34,11 @@ import utils.NavigationType;
 import utils.ViewState;
 
 public class SchoolListPage extends Fragment implements SchoolListAdapter.SchoolListItemClickListener {
+    private static final String TAG = SchoolListPage.class.getCanonicalName();
     private SchoolListAdapter schoolListAdapter;
     private FragmentSchoolListPageBinding binding;
     private NavController navController;
+    private BottomSheetDialog directionSheetDialog;
     @Inject
     public SchoolListPageViewModel.Factory viewModelFactory;
     private SchoolListPageViewModel schoolListPageViewModel;
@@ -67,6 +70,7 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
             this.schoolListAdapter.submitList(schoolDirectories);
         });
         this.schoolListPageViewModel.getStatusLiveData().observe(getViewLifecycleOwner(), schoolListObserver());
+        this.directionSheetDialog = new BottomSheetDialog();
     }
 
     private Observer<Object> schoolListObserver() {
@@ -98,6 +102,12 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (this.directionSheetDialog != null && this.directionSheetDialog.getClickLiveData() != null) {
+            this.directionSheetDialog.getClickLiveData().removeObserver(bottomSheetClickObserver("", ""));
+        }
+        if (this.schoolListPageViewModel.getStatusLiveData() != null) {
+            this.schoolListPageViewModel.getStatusLiveData().removeObserver(schoolListObserver());
+        }
     }
 
     @Override
@@ -141,7 +151,54 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
                         e.printStackTrace();
                     }
                 }
+                if (this.directionSheetDialog != null && getActivity() != null) {
+                    this.directionSheetDialog.show(getActivity().getSupportFragmentManager(), this.directionSheetDialog.getTag());
+                    this.directionSheetDialog.getClickLiveData().observe(getViewLifecycleOwner(), bottomSheetClickObserver(wazeUrl, googleUrl));
+                }
             }
         }
     }
+
+    private Observer<NavigationType> bottomSheetClickObserver(String wazeUrl, String googleUrl) {
+        return navigationType -> {
+            switch (navigationType) {
+                case WAZE: {
+                    try {
+                       launchIntent((wazeUrl != null && !"".equals(wazeUrl) ? wazeUrl : ""));
+                    } catch (Exception e) {
+                        printDebug(e);
+                        String storeUrl = "market://details?id=com.waze";
+                        launchIntent(storeUrl);
+                    }
+                    break;
+                }
+                case GOOGLE: {
+                    try {
+                        launchIntent((googleUrl != null && !"".equals(googleUrl) ? googleUrl : ""));
+                    } catch (Exception e) {
+                        printDebug(e);
+                        String storeUrl = "market://details?id=com.google.android.apps.maps";
+                        launchIntent(storeUrl);
+                    }
+                    break;
+                }
+            }
+        };
+    }
+    private void launchIntent(String url) {
+        if (!"".equals(url)) {
+            Intent wazeIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            wazeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(wazeIntent);
+            this.directionSheetDialog.dismiss();
+        }
+    }
+    private void printDebug(Exception e) {
+        if (BuildConfig.DEBUG) {
+            if (e.getLocalizedMessage() != null) {
+                Timber.e(TAG + "Exception: " + e.getLocalizedMessage());
+            }
+        }
+    }
+
 }
