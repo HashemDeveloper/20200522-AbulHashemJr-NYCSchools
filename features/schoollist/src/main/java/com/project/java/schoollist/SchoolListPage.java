@@ -1,5 +1,6 @@
 package com.project.java.schoollist;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,10 +22,14 @@ import com.project.java.core.viewmodel.ViewModelFactory;
 import com.project.java.schoollist.databinding.FragmentSchoolListPageBinding;
 import com.project.java.schoollist.recycler.SchoolListAdapter;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 import timber.log.Timber;
+import utils.NavigationType;
 import utils.ViewState;
 
 public class SchoolListPage extends Fragment implements SchoolListAdapter.SchoolListItemClickListener {
@@ -99,8 +104,17 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
     public <T> void onItemClicked(SchoolListAdapter.ItemClickType type, T data) {
         switch (type) {
             case WEBSITE: {
-                String url = (String) data;
-                Timber.e(url);
+                String d = (String) data;
+                String url = "";
+                if (d != null && !"".equals(d)) {
+                    if (!d.startsWith("https://") && !d.startsWith("http://")) {
+                        url = "http://" + d;
+                    } else {
+                        url = d;
+                    }
+                    Intent browseIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browseIntent);
+                }
                 break;
             }
             case SAT_SCORE:
@@ -114,6 +128,19 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
                 }
                 NavigationUtil.navigateUriWithDefaultOptions(this.navController, Uri.parse("nycschools://schooldetailspage/" + id + "/" + schoolName), null);
                 break;
+            }
+            case DESTINATION: {
+                String destination = (String) data;
+                String wazeUrl = "";
+                String googleUrl = "";
+                try {
+                    wazeUrl = NavigationType.WAZE.getUrlString() + URLEncoder.encode(destination, "UTF-8");
+                    googleUrl = NavigationType.GOOGLE.getUrlString() + URLEncoder.encode(destination, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    if (BuildConfig.DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }

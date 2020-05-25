@@ -24,9 +24,10 @@ public class NYCSchoolsMainActivity extends AppCompatActivity implements HasSupp
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nyc_schools_main_layout);
-        this.navController = Navigation.findNavController(this, R.id.container);
+        this.navController = Navigation.findNavController(this, R.id.listOfSchool);
         this.navController.setGraph(R.navigation.nyc_school_navigation_layout);
     }
 

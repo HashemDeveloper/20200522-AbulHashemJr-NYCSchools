@@ -41,6 +41,11 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
     public BaseViewHolder<?> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_school_list_recycler_item_layout, parent, false);
         SchoolListViewHolder schoolListViewHolder = new SchoolListViewHolder(view, parent.getContext(), this.zoomSize, this.imageSize, this.mapApiKey);
+        schoolListViewHolder.getAddressSnapShotView().setOnClickListener(onClick -> {
+            SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
+            String destination = schoolDirectory.getLatitude() + "," + schoolDirectory.getLongitude();
+            this.listener.onItemClicked(ItemClickType.DESTINATION, destination);
+        });
         schoolListViewHolder.getCardView().setOnClickListener(onClick -> {
             SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
             String id = schoolDirectory.getDbn();
@@ -56,7 +61,6 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         });
         schoolListViewHolder.getSatScoreBt().setOnClickListener(view2 -> {
             SchoolDirectory schoolDirectory = (SchoolDirectory) schoolListViewHolder.itemView.getTag();
-//            String destination = schoolDirectory.getLatitude() + "," + schoolDirectory.getLongitude();
             String id = schoolDirectory.getDbn();
             String schoolName = schoolDirectory.getSchoolName();
             String[] dataArray = new String[2];
@@ -146,6 +150,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
         MaterialCardView getCardView() {
             return this.cardView;
         }
+        AppCompatImageView getAddressSnapShotView() { return this.addressSnapShotView; }
     }
     public interface SchoolListItemClickListener {
         <T> void onItemClicked(ItemClickType type, T data);
@@ -154,6 +159,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
     public enum ItemClickType {
         WEBSITE,
         SAT_SCORE,
-        NAVIGATE
+        NAVIGATE,
+        DESTINATION
     }
 }

@@ -1,4 +1,3 @@
-
 import dependencies.AnnotationProcessor
 import dependencies.Dependencies
 import extensions.addTestDependencies
