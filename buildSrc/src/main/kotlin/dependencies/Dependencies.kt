@@ -7,7 +7,6 @@ object Dependencies {
     const val CIRCULAR_IMAGE = "de.hdodenhof:circleimageview:${BuildDependenciesVersions.CIRCULAR_IMAGE_V}"
     const val MULTIDEX = "androidx.multidex:multidex:${BuildDependenciesVersions.MULTI_DEX_V}"
     const val FLOWABLE_TEXTVIEW = "com.github.deano2390:FlowTextView:${BuildDependenciesVersions.FLOWABLE_TEXTVIEW_V}"
-    const val GOOGLE_MAP = "com.google.android.gms:play-services-maps:${BuildDependenciesVersions.GOOGLE_PLAY_SERVICE_AUTH}"
 
     object AndroidX {
         const val APP_COMPAT = "androidx.appcompat:appcompat:${BuildDependenciesVersions.ANDROIDX_APPCOMPAT}"
