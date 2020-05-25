@@ -81,7 +81,7 @@ dependencies {
     implementation(project(BuildModules.CORE))
     implementation(project(BuildModules.REMOTE_DATA))
     implementation(project(BuildModules.SCHOOL_LIST_PAGE))
-    implementation(project(BuildModules.SCHOOL_DETAILS))
+    implementation(project(BuildModules.SAT_SCORES))
     implementation(project(BuildModules.ASSETS))
     
     implementation(Dependencies.KOTLIN)
