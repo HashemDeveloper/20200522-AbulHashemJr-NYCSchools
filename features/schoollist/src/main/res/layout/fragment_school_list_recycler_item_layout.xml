@@ -55,7 +55,10 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fragment_school_list_map_view_id"
                     android:layout_width="150dp"
-                    android:layout_height="150dp" />
+                    android:layout_height="150dp"
+                    android:padding="8dp"
+                    android:scaleType="center"
+                    />
             </uk.co.deanwild.flowtextview.FlowTextView>
 
             <androidx.constraintlayout.widget.Guideline
