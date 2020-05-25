@@ -17,7 +17,7 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/remote" />
             <option value="$PROJECT_DIR$/features" />
-            <option value="$PROJECT_DIR$/features/schooldetails" />
+            <option value="$PROJECT_DIR$/features/satscores" />
             <option value="$PROJECT_DIR$/features/schoollist" />
             <option value="$PROJECT_DIR$/models" />
           </set>
