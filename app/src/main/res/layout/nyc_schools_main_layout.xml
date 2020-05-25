@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".NYCSchoolsMainActivity">
         <fragment
-            android:id="@+id/container"
+            android:id="@+id/listOfSchool"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:name="androidx.navigation.fragment.NavHostFragment"

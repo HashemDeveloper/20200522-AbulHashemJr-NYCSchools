@@ -115,6 +115,9 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
                 NavigationUtil.navigateUriWithDefaultOptions(this.navController, Uri.parse("nycschools://schooldetailspage/" + id + "/" + schoolName), null);
                 break;
             }
+            case DESTINATION: {
+                String destination = (String) data;
+            }
         }
     }
 }
