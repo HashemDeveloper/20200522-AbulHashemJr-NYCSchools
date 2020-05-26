@@ -1,6 +1,7 @@
 package com.project.java.core.base;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int theme();
     protected abstract int getNavLayout();
     protected abstract int getContainerId();
+    protected abstract void setupConnectionStateMonitor();
+    protected View view;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,5 +28,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayout());
         this.navController = Navigation.findNavController(this, getContainerId());
         this.navController.setGraph(getNavLayout());
+        setupConnectionStateMonitor();
     }
 }

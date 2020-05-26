@@ -8,13 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".NYCSchoolsMainActivity">
+
         <fragment
             android:id="@+id/listOfSchool"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nyc_school_navigation_layout"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nyc_school_navigation_layout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

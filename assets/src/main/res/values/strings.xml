@@ -11,4 +11,8 @@
     <string name="test_takers">Total Test Takers</string>
     <string name="navtype_google">Google</string>
     <string name="navtype_waze">Waze</string>
+    <string name="using_wifi">Using Wi-Fi</string>
+    <string name="using_mobile_data">Switched to mobile data</string>
+    <string name="no_internet">No Internet. Please connect to internet</string>
+    <string name="setting">Settings</string>
 </resources>
