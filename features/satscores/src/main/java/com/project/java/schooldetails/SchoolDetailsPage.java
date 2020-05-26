@@ -22,7 +22,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
-import timber.log.Timber;
 import utils.ViewState;
 
 public class SchoolDetailsPage extends Fragment {
@@ -63,10 +62,11 @@ public class SchoolDetailsPage extends Fragment {
                 if (o instanceof ViewState) {
                     switch (((ViewState) o).getStatusType()) {
                         case LOADING: {
-                            Timber.e("Loading");
+                            displayProgressBar(true);
                             break;
                         }
                         case SUCCESS: {
+                            displayProgressBar(false);
                             if (((ViewState) o).getData() != null) {
                                 List<SATScores> satScores = (List<SATScores>) ((ViewState) o).getData();
                                 setupSatScoreView(satScores);
@@ -74,12 +74,18 @@ public class SchoolDetailsPage extends Fragment {
                             break;
                         }
                         case ERROR: {
+                            displayProgressBar(false);
+                            setupSatScoreView(null);
                             break;
                         }
                     }
                 }
             }
         });
+    }
+
+    private void displayProgressBar(boolean isVisible) {
+        this.binding.fragmentSchoolDetailsProgressBarId.setVisibility(isVisible ? View.VISIBLE : View.GONE);
     }
 
     private void setupSatScoreView(List<SATScores> satScores) {
