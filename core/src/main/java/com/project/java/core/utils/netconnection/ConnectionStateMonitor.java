@@ -170,7 +170,7 @@ public class ConnectionStateMonitor extends LiveData<Boolean> implements IConnec
     public void setupConnectionStateMonitor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (this.networkCallback == null) {
-                this.networkCallback = new JLimoNetCallBack(this);
+                this.networkCallback = new NetConnectionCallBack(this);
             }
         }
     }
@@ -190,11 +190,11 @@ public class ConnectionStateMonitor extends LiveData<Boolean> implements IConnec
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    static class JLimoNetCallBack extends ConnectivityManager.NetworkCallback {
+    static class NetConnectionCallBack extends ConnectivityManager.NetworkCallback {
         private ConnectionStateMonitor connectionStateMonitor;
         private boolean isNetworkCallbackRegistered = false;
         private boolean isNetAvailabble = false;
-        JLimoNetCallBack(ConnectionStateMonitor connectionStateMonitor) {
+        NetConnectionCallBack(ConnectionStateMonitor connectionStateMonitor) {
             this.connectionStateMonitor = connectionStateMonitor;
             Handler callbackHandler = new Handler();
             callbackHandler.postDelayed(() -> {
