@@ -15,4 +15,5 @@
     <string name="using_mobile_data">Switched to mobile data</string>
     <string name="no_internet">No Internet. Please connect to internet</string>
     <string name="setting">Settings</string>
+    <string name="no_data_error">Nothing Show</string>
 </resources>

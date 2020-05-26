@@ -85,15 +85,18 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
             if (o instanceof ViewState) {
                 switch (((ViewState) o).getStatusType()) {
                     case LOADING: {
+                        displayErrorMessage(false);
                         displayProgressBar(true);
                         break;
                     }
                     case COMPLETE: {
+                        displayErrorMessage(false);
                         displayProgressBar(false);
                         break;
                     }
                     case ERROR: {
                         displayProgressBar(false);
+                        displayErrorMessage(true);
                         if (BuildConfig.DEBUG) {
                             Timber.e("Error%s", ((ViewState) o).getErrorMessage());
                         }
@@ -103,6 +106,14 @@ public class SchoolListPage extends Fragment implements SchoolListAdapter.School
             }
         };
     }
+    private void displayErrorMessage(boolean isVisible) {
+        this.binding.fragmentSchoolListDisplayErrorMessageId.setVisibility(isVisible ? View.VISIBLE : View.GONE);
+        if (this.binding.fragmentSchoolListDisplayErrorMessageId.getVisibility() == View.VISIBLE) {
+            String displayMessage = getResources().getString(R.string.no_data_error);
+            this.binding.fragmentSchoolListDisplayErrorMessageId.setText(displayMessage);
+        }
+    }
+
     private void displayProgressBar(boolean isShow) {
         this.binding.fragmentSchoolListPageProgressBarId.setVisibility(isShow ? View.VISIBLE : View.GONE);
     }
