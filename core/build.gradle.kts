@@ -70,6 +70,8 @@ dependencies {
     implementation(Dependencies.Retrofit.CORE)
     implementation(Dependencies.Retrofit.CONVERTER)
     implementation(Dependencies.Retrofit.RX_JAVA2)
+    implementation(Dependencies.RxJava2.JAVA_VERSION)
+    implementation(Dependencies.RxJava2.ANDROID_VERSION)
 
     compileOnly(AnnotationProcessor.Dagger.INJECT_ANNOTATION)
     // for java

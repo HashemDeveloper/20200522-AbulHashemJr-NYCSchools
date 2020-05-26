@@ -25,7 +25,7 @@
         android:id="@+id/schoolDetailsPage"
         android:name="com.project.java.schooldetails.SchoolDetailsPage"
         android:label="SchoolDetailsPage"
-        tools:layout="@layout/fragment_school_details_layout"
+        tools:layout="@layout/fragment_sat_score_layout"
         >
        <deepLink
            android:id="@+id/deepLink"
