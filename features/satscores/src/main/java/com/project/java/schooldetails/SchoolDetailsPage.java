@@ -15,7 +15,7 @@ import androidx.navigation.NavController;
 
 import com.project.java.core.viewmodel.ViewModelFactory;
 import com.project.java.models.SATScores;
-import com.project.java.schooldetails.databinding.FragmentSchoolDetailsLayoutBinding;
+import com.project.java.schooldetails.databinding.FragmentSatScoreLayoutBindingImpl;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ import dagger.android.support.AndroidSupportInjection;
 import utils.ViewState;
 
 public class SchoolDetailsPage extends Fragment {
-    public FragmentSchoolDetailsLayoutBinding binding;
+    public FragmentSatScoreLayoutBindingImpl binding;
     @Inject
     public SchoolDetailPageViewModel.Factory viewModelFactory;
     private NavController navController;
@@ -40,7 +40,7 @@ public class SchoolDetailsPage extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_school_details_layout, container, false);
+        this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sat_score_layout, container, false);
         return this.binding.getRoot();
     }
 
@@ -85,7 +85,7 @@ public class SchoolDetailsPage extends Fragment {
     }
 
     private void displayProgressBar(boolean isVisible) {
-        this.binding.fragmentSchoolDetailsProgressBarId.setVisibility(isVisible ? View.VISIBLE : View.GONE);
+        this.binding.fragmentSatScoreProgressBarId.setVisibility(isVisible ? View.VISIBLE : View.GONE);
     }
 
     private void setupSatScoreView(List<SATScores> satScores) {
