@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nyc_school_navigation_layout"
+    app:startDestination="@id/listOfSchool"
+    >
+    <fragment
+        android:id="@+id/listOfSchool"
+        android:name="com.project.java.schoollist.SchoolListPage"
+        android:label="List Of Schools"
+        tools:layout="@layout/fragment_school_list_page"
+        >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="nycschools://schoollistpage" />
+        <action
+            android:id="@+id/action_listOfSchool_to_schoolDetailsPage"
+            app:destination="@id/schoolDetailsPage"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popUpTo="@id/schoolDetailsPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/schoolDetailsPage"
+        android:name="com.project.java.schooldetails.SatScorePage"
+        android:label="SchoolDetailsPage"
+        tools:layout="@layout/fragment_sat_score_layout"
+        >
+       <deepLink
+           android:id="@+id/deepLink"
+           app:uri="nycschools://schooldetailspage/{school_id}/{school_name}"
+           />
+        <action
+            android:id="@+id/action_schoolDetailsPage_to_listOfSchool"
+            app:destination="@id/listOfSchool"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popUpTo="@id/listOfSchool" />
+    </fragment>
+</navigation>

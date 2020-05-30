@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="description">School Overview</string>
+    <string name="school_title">Title</string>
+    <string name="website">Website</string>
+    <string name="direction">Direction</string>
+    <string name="sat_score">SAT Scores</string>
+    <string name="math_score">MATH</string>
+    <string name="reading">READING</string>
+    <string name="writing">WRITING</string>
+    <string name="test_takers">Total Test Takers</string>
+    <string name="navtype_google">Google</string>
+    <string name="navtype_waze">Waze</string>
+    <string name="using_wifi">Using Wi-Fi</string>
+    <string name="using_mobile_data">Switched to mobile data</string>
+    <string name="no_internet">No Internet. Please connect to internet</string>
+    <string name="setting">Settings</string>
+    <string name="no_data_error">Nothing Show</string>
+</resources>
