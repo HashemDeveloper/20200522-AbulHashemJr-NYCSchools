@@ -8,4 +8,7 @@ fun DependencyHandler.addTestDependencies() {
     androidTestImplementation(dependencies.TestDependencies.ANDROID_JUNIT)
     androidTestImplementation(dependencies.TestDependencies.ANDROID_RUNNER)
     androidTestImplementation(dependencies.TestDependencies.ANDROIDX_ESPRESSO)
+
+    testImplementation(dependencies.TestDependencies.ROBOLECTRIC)
+    testImplementation(dependencies.TestDependencies.ROBOLECTRIC_MULTIDEX)
 }

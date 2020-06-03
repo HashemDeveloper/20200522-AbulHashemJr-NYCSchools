@@ -42,5 +42,7 @@ object BuildDependenciesVersions {
         const val ANDROID_JUNIT = "1.1.1"
         const val ANDROID_RUNNER = "1.2.0"
         const val ANDROIDX_ESPRESSO = "3.2.0"
+        const val ROBOLECTRIC = "4.3"
+        const val ROBOLECTRIC_MULTIDEX = "4.0.1"
     }
 }
