@@ -110,6 +110,10 @@ dependencies {
     implementation(Dependencies.Retrofit.CONVERTER)
     implementation(Dependencies.PAGINATION.CORE)
     compileOnly(AnnotationProcessor.Dagger.INJECT_ANNOTATION)
+
+    implementation(Dependencies.RxJava2.ANDROID_VERSION)
+    implementation(Dependencies.RxJava2.JAVA_VERSION)
+
     // for Java
     annotationProcessor(AnnotationProcessor.Dagger.COMPILER)
     annotationProcessor(AnnotationProcessor.Dagger.ANDROID_PROCESSOR)

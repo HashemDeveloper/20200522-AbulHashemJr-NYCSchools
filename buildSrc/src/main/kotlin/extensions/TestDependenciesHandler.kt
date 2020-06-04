@@ -12,4 +12,6 @@ fun DependencyHandler.addTestDependencies() {
 
     testImplementation(dependencies.TestDependencies.ROBOLECTRIC)
     testImplementation(dependencies.TestDependencies.ROBOLECTRIC_MULTIDEX)
+
+    testImplementation(dependencies.TestDependencies.ARCH_COMPONENT)
 }

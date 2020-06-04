@@ -1,5 +1,6 @@
 package com.project.java.schoollist;
 
+import androidx.annotation.RestrictTo;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
@@ -13,14 +14,16 @@ import com.project.java.remote.paging.SchoolListPageDataSource;
 
 import javax.inject.Inject;
 
-class SchoolListPageViewModel extends ViewModel implements SchoolListPageDataSource.FactoryCreateListener {
+import utils.ViewStatusLiveData;
+
+public class SchoolListPageViewModel extends ViewModel implements SchoolListPageDataSource.FactoryCreateListener {
     private SavedStateHandle savedStateHandle;
     private ISchoolApi iSchoolApi;
     private SchoolListPageDataSource.Factory schoolListPageDataSourceFactory;
     private LiveData<PagedList<SchoolDirectory>> schoolListData;
     private LiveData statusLiveData;
     private StatusListener statusListener;
-
+    private LiveData testStatusLiveData = new ViewStatusLiveData();
     private SchoolListPageViewModel(SavedStateHandle savedStateHandle, ISchoolApi iSchoolApi) {
         this.savedStateHandle = savedStateHandle;
          this.iSchoolApi = iSchoolApi;
@@ -45,7 +48,13 @@ class SchoolListPageViewModel extends ViewModel implements SchoolListPageDataSou
 
     @Override
     public void onPageDataSourceCreated(SchoolListPageDataSource dataSource) {
+        this.testStatusLiveData = dataSource.getStatusLiveData();
         this.statusListener.onStatusChanged(dataSource.getStatusLiveData());
+    }
+
+    @RestrictTo(RestrictTo.Scope.TESTS)
+    public LiveData getLiveDataStatus() {
+        return this.testStatusLiveData;
     }
 
     static class Factory implements ISavedStateViewModel<SchoolListPageViewModel> {
