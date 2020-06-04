@@ -1,12 +1,7 @@
 package com.project.java.a20200522_abulhashemjr_nycschools;
 
-import android.app.Application;
-import android.content.Context;
-import android.widget.LinearLayout;
-
 import androidx.paging.PagedList;
 
-import com.project.java.a20200522_abulhashemjr_nycschools.fakemodels.SchoolListDirectory;
 import com.project.java.models.SchoolDirectory;
 import com.project.java.schoollist.recycler.SchoolListAdapter;
 
@@ -14,14 +9,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentMatcher;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import java.util.ArrayList;
