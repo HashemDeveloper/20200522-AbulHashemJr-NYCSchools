@@ -93,7 +93,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
                 }
             };
 
-    static class SchoolListViewHolder extends BaseViewHolder<SchoolDirectory> {
+    public static class SchoolListViewHolder extends BaseViewHolder<SchoolDirectory> {
         private String mapApiKey;
         private int zoomSize;
         private String imageSize;

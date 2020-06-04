@@ -4,6 +4,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 
 fun DependencyHandler.addTestDependencies() {
     testImplementation(dependencies.TestDependencies.JUNIT)
+    testImplementation(dependencies.TestDependencies.MOCKITO)
 
     androidTestImplementation(dependencies.TestDependencies.ANDROID_JUNIT)
     androidTestImplementation(dependencies.TestDependencies.ANDROID_RUNNER)

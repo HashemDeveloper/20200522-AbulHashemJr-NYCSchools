@@ -44,5 +44,6 @@ object BuildDependenciesVersions {
         const val ANDROIDX_ESPRESSO = "3.2.0"
         const val ROBOLECTRIC = "4.3"
         const val ROBOLECTRIC_MULTIDEX = "4.0.1"
+        const val MOCKITO = "2.11.0"
     }
 }

@@ -7,4 +7,5 @@ object TestDependencies {
     const val JUNIT = "junit:junit:${BuildDependenciesVersions.Test.JUNIT}"
     const val ROBOLECTRIC = "org.robolectric:robolectric:${BuildDependenciesVersions.Test.ROBOLECTRIC}"
     const val ROBOLECTRIC_MULTIDEX = "org.robolectric:shadows-multidex:${BuildDependenciesVersions.Test.ROBOLECTRIC_MULTIDEX}"
+    const val MOCKITO = "org.mockito:mockito-inline:${BuildDependenciesVersions.Test.MOCKITO}"
 }

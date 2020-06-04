@@ -83,7 +83,7 @@ dependencies {
     implementation(project(BuildModules.SCHOOL_LIST_PAGE))
     implementation(project(BuildModules.SAT_SCORES))
     implementation(project(BuildModules.ASSETS))
-    
+    implementation(project(BuildModules.MODELS))
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.AndroidX.APP_COMPAT)
     implementation(Dependencies.AndroidX.Core_KTX)
@@ -108,7 +108,7 @@ dependencies {
     implementation(Dependencies.Dagger.ANDROID_SUPPORT)
     implementation(Dependencies.Retrofit.CORE)
     implementation(Dependencies.Retrofit.CONVERTER)
-
+    implementation(Dependencies.PAGINATION.CORE)
     compileOnly(AnnotationProcessor.Dagger.INJECT_ANNOTATION)
     // for Java
     annotationProcessor(AnnotationProcessor.Dagger.COMPILER)
