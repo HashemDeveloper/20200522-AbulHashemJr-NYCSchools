@@ -2,6 +2,7 @@ package com.project.java.a20200522_abulhashemjr_nycschools;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 
+import com.project.java.a20200522_abulhashemjr_nycschools.utils.RxScheduler;
 import com.project.java.models.SATScores;
 import com.project.java.remote.ISchoolApi;
 import com.project.java.remote.repo.SchoolRepository;
@@ -29,7 +30,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import retrofit2.Response;
 import utils.ViewState;
 
-public class TestSchoolRepo {
+public class TestSchoolRepo extends RxScheduler {
     @Rule
     public TestRule rule = new InstantTaskExecutorRule();
     @Mock
@@ -55,26 +56,6 @@ public class TestSchoolRepo {
         Assert.assertEquals("ABC", scoresList.get(0).getSchoolName());
         Assert.assertEquals("320", scoresList.get(1).getSatWritingAvgScore());
         Assert.assertEquals("JKL", scoresList.get(2).getSchoolName());
-    }
-
-    private void setupRxScheduler() {
-        Scheduler immediate = new Scheduler() {
-            @Override
-            public Disposable scheduleDirect(Runnable run, long delay, TimeUnit unit) {
-                return super.scheduleDirect(run, 0, unit);
-            }
-
-            @Override
-            public Worker createWorker() {
-                return new ExecutorScheduler.ExecutorWorker(Runnable::run, false);
-            }
-        };
-
-        RxJavaPlugins.setInitIoSchedulerHandler(schedulerCallable -> immediate);
-        RxJavaPlugins.setInitComputationSchedulerHandler(schedulerCallable -> immediate);
-        RxJavaPlugins.setInitNewThreadSchedulerHandler(schedulerCallable -> immediate);
-        RxJavaPlugins.setInitSingleSchedulerHandler(schedulerCallable -> immediate);
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler(schedulerCallable -> immediate);
     }
 
     private void setupSATSCoreData() {
@@ -107,12 +88,8 @@ public class TestSchoolRepo {
         list.add(s2);
         list.add(s3);
 
-        Response res = Response.success(list);
+        Response<List<SATScores>> res = Response.success(list);
         this.testSATResObservable = Observable.just(res);
         Mockito.when(this.schoolApi.getSATScores(anyData())).thenReturn(this.testSATResObservable);
-    }
-    private <T> T anyData() {
-        Mockito.any();
-        return (T) null;
     }
 }
