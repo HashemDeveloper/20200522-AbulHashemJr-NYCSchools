@@ -135,6 +135,7 @@ public class SchoolListAdapter extends PagedListAdapter<SchoolDirectory, BaseVie
                 String snapShotMapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" + item.getLatitude() + ","
                         + item.getLongitude() + "&zoom=" + this.zoomSize + "&size=" + this.imageSize + "&key=" + this.mapApiKey;
                 CircularProgressDrawable circularProgressDrawable = Constants.Companion.glideCircularAnim(this.context);
+                circularProgressDrawable.start();
                 GlideApp.with(this.itemView).load(snapShotMapUrl)
                         .placeholder(circularProgressDrawable)
                         .into(this.addressSnapShotView);
