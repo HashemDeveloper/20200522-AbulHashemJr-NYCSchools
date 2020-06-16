@@ -26,8 +26,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setTheme(theme());
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
-        this.navController = Navigation.findNavController(this, getContainerId());
-        this.navController.setGraph(getNavLayout());
         setupConnectionStateMonitor();
     }
 }
